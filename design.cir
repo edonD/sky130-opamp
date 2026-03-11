@@ -39,16 +39,15 @@ Cc n2rc out {Cc}p
 * === Load ===
 CL out 0 5p
 
-* === FAST Measurements (for DE optimization) ===
 .control
 op
 
 let pwr = abs(v(vdd) * i(Vdd)) * 1e6
 echo "RESULT_POWER_UW" $&pwr
 
-* AC analysis — extend to 10G to catch high-GBW designs
+* AC analysis
 ac dec 20 1 1G
-wrdata ac_data v(out)
+wrdata {ac_file} v(out)
 
 meas ac dc_gain_db find vdb(out) at=10
 echo "RESULT_DC_GAIN_DB" $&dc_gain_db
@@ -58,10 +57,6 @@ set dcg_val = "$&saved_dcgain"
 
 meas ac gbw_hz when vdb(out)=0
 echo "RESULT_GBW_HZ" $&gbw_hz
-
-meas ac phase_at_gbw find vp(out) when vdb(out)=0
-let pm_approx = 180 + phase_at_gbw
-echo "RESULT_PHASE_MARGIN_DEG" $&pm_approx
 
 * CMRR
 alter Vinp ac = 1
@@ -74,7 +69,7 @@ echo "RESULT_CMRR_DB" $&cmrr
 alter Vinp ac = 0.5
 alter Vinm ac = -0.5
 
-* Output swing — very coarse
+* Output swing
 dc Vinp 0.4 1.4 0.2
 meas dc vout_max max v(out)
 meas dc vout_min min v(out)

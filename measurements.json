@@ -1,64 +1,16 @@
 {
   "measurements": {
-    "RESULT_POWER_UW": 153.311,
-    "RESULT_DC_GAIN_DB": 61.1593,
-    "RESULT_GBW_HZ": 48224700.0,
-    "RESULT_PHASE_MARGIN_DEG": 176.917,
-    "RESULT_CMRR_DB": 71.2606,
-    "RESULT_OUTPUT_SWING_V": 1.7776
+    "RESULT_POWER_UW": 202.843,
+    "RESULT_DC_GAIN_DB": 64.4811,
+    "RESULT_GBW_HZ": 12534000.0,
+    "RESULT_CMRR_DB": 87.7769,
+    "RESULT_OUTPUT_SWING_V": 1.79134,
+    "RESULT_PHASE_MARGIN_DEG": 100.61186554499851,
+    "RESULT_GBW_HZ_UNWRAP": 12530863.594320398
   },
-  "score": 162.183535,
-  "details": {
-    "dc_gain_db": {
-      "value": 61.1593,
-      "target": ">60",
-      "met": true
-    },
-    "gbw_hz": {
-      "value": 48224700.0,
-      "target": ">5e6",
-      "met": true
-    },
-    "phase_margin_deg": {
-      "value": 176.917,
-      "target": ">60",
-      "met": true
-    },
-    "power_uw": {
-      "value": 153.311,
-      "target": "<1000",
-      "met": true
-    },
-    "output_swing_v": {
-      "value": 1.7776,
-      "target": ">1.2",
-      "met": true
-    },
-    "cmrr_db": {
-      "value": 71.2606,
-      "target": ">60",
-      "met": true
-    }
-  },
-  "parameters": {
-    "W1": 26.390565396328665,
-    "L1": 0.6214241292793046,
-    "W3": 24.717362360357384,
-    "L3": 1.4048550391559853,
-    "W5": 19.516234295403937,
-    "L5": 4.288224928594634,
-    "W6": 50.04562298108147,
-    "L6": 0.9225618338275683,
-    "W7": 10.700752461685159,
-    "L7": 1.1997241989633909,
-    "Wbn": 1.722071135654194,
-    "Lbn": 1.3172492709916883,
-    "Wbp": 60.57546457266927,
-    "Lbp": 2.08967053356138,
-    "Ibias": 5.5235975636871255e-06,
-    "Cc": 41.757003227086756,
-    "Rc": 38541.154052153135
-  },
-  "trials": 150,
-  "elapsed": 664.3954432010651
+  "score": 159.00957684833284,
+  "all_met": true,
+  "specs_met": 6,
+  "trials": 60,
+  "elapsed": 322.5063352584839
 }

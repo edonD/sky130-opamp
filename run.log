@@ -4,3 +4,4 @@ Parameters: 17
 Specs: 6
 
 DE: 17 params, pop=34, patience=10, workers=8
+[DE] iter    1 | best: -5.162751e+00 | no_improve:   0 | div: 0.2887 | dt: 116.283s[[DE] iter    2 | best: -5.162751e+00 | no_improve:   1 | div: 0.2744 | dt: 130.872s[[DE] iter    3 | best: -5.162751e+00 | no_improve:   2 | div: 0.2616 | dt: 116.639s[[DE] iter    4 | best: -5.162751e+00 | no_improve:   3 | div: 0.2486 | dt: 118.472s[[DE] iter    5 | best: -5.162751e+00 | no_improve:   4 | div: 0.2454 | dt: 112.282s[[DE] iter    6 | best: -5.162751e+00 | no_improve:   5 | div: 0.2421 | dt: 144.837s[[DE] iter    7 | best: -5.162751e+00 | no_improve:   6 | div: 0.2453 | dt: 144.862s
