@@ -1,5 +1,6 @@
 * SKY130 Two-Stage Miller OTA — NMOS input pair
-* NMOS diff pair for higher gm/GBW, PMOS mirror load, PMOS CS second stage
+* NMOS diff pair, PMOS mirror load, PMOS CS second stage
+* Non-inverting from inp to out (inp on mirror side, inm on diode side)
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
@@ -18,9 +19,10 @@ Vinm inm 0 DC 0.9 AC -0.5
 * Tail current source (NMOS, from VSS)
 XM5 tail biasn vss vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
 
-* Differential pair (NMOS)
-XM1 n1 inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
-XM2 n2 inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+* Differential pair (NMOS) — inp drives M2 (mirror output side n2)
+* inm drives M1 (diode side n1) for non-inverting response
+XM1 n1 inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+XM2 n2 inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
 
 * Active load (PMOS current mirror)
 XM3 n1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
@@ -36,7 +38,7 @@ Cc out n2rc {Cc}p
 Rc n2rc n2 {Rc}
 
 * === Bias generation ===
-* Current reference: VDD -> Rbias -> biasn -> NMOS diode to VSS
+* Current reference: VDD -> Ibias -> biasn -> NMOS diode to VSS
 Ibias vdd biasn {Ibias}
 XMbn biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbias}u L={Lbias}u nf=1
 
@@ -54,13 +56,15 @@ echo "RESULT_POWER_UW" $&pwr
 
 * AC analysis — differential mode
 ac dec 50 1 100Meg
+
+* Write AC data immediately (before any alters)
 wrdata ac_data v(out)
 
 * DC gain
 meas ac dc_gain_db find vdb(out) at=10
 echo "RESULT_DC_GAIN_DB" $&dc_gain_db
 
-* Save the plot name for later CMRR reference
+* Save for CMRR
 let saved_dcgain = dc_gain_db
 set dcg_val = "$&saved_dcgain"
 
@@ -80,10 +84,6 @@ ac dec 50 1 100Meg
 meas ac cm_gain_db find vdb(out) at=10
 let cmrr = $dcg_val - cm_gain_db
 echo "RESULT_CMRR_DB" $&cmrr
-
-* Restore differential excitation
-alter Vinp ac = 0.5
-alter Vinm ac = -0.5
 
 * === Output swing: DC sweep with very coarse step ===
 dc Vinp 0.4 1.4 0.1

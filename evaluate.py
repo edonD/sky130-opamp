@@ -170,9 +170,9 @@ def parse_ngspice_output(output: str) -> Dict[str, float]:
 def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional[float]:
     """Read ngspice wrdata output, compute PM with np.unwrap.
 
-    wrdata format: each line has 'freq  real  imag' (tab or space separated).
-    ngspice wrdata writes index, real, imag on alternating lines or
-    freq real imag depending on version. We handle both.
+    Handles both non-inverting (phase starts ~0°) and inverting (phase starts ~180°)
+    amplifiers. For non-inverting: PM = 180 + phase_at_UGF.
+    For inverting: PM = phase_at_UGF (distance from 0° instability point).
     """
     data_file = os.path.join(PROJECT_DIR, ac_data_path)
     if not os.path.exists(data_file):
@@ -206,6 +206,11 @@ def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional
         phase_unwrapped = np.unwrap(phase_rad)
         phase_deg = np.degrees(phase_unwrapped)
 
+        # Detect if amplifier is inverting (phase starts near ±180°)
+        dc_phase = phase_deg[0]
+        is_inverting = abs(abs(dc_phase) - 180.0) < 30.0
+        print(f"  DC phase = {dc_phase:.1f} deg, {'inverting' if is_inverting else 'non-inverting'} amp")
+
         # Find unity gain crossing (0 dB)
         # Look for where gain_db crosses 0 from above
         for i in range(len(gain_db) - 1):
@@ -213,9 +218,16 @@ def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional
                 # Linear interpolation
                 frac = gain_db[i] / (gain_db[i] - gain_db[i + 1])
                 phase_at_ugf = phase_deg[i] + frac * (phase_deg[i + 1] - phase_deg[i])
-                pm = 180.0 + phase_at_ugf
                 freq_ugf = freq[i] * (freq[i + 1] / freq[i]) ** frac
-                print(f"  UGF = {freq_ugf:.2e} Hz, phase at UGF = {phase_at_ugf:.1f} deg")
+
+                if is_inverting:
+                    # Inverting amp: instability at 0°, PM = distance from 0°
+                    pm = abs(phase_at_ugf)
+                else:
+                    # Non-inverting amp: instability at -180°, PM = 180 + phase
+                    pm = 180.0 + phase_at_ugf
+
+                print(f"  UGF = {freq_ugf:.2e} Hz, phase at UGF = {phase_at_ugf:.1f} deg, PM = {pm:.1f} deg")
                 return pm
 
         print("  WARNING: no 0dB crossing found in AC data")
