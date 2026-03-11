@@ -1,4 +1,4 @@
-* SKY130 Two-Stage Miller OTA — Starter Topology
+* SKY130 Two-Stage Miller OTA
 * PMOS input pair, NMOS active load, NMOS second stage
 
 .lib "sky130_models/sky130.lib.spice" tt
@@ -36,11 +36,11 @@ Cc out n2rc {Cc}p
 Rc n2rc n2 {Rc}
 
 * === Bias generation ===
-Ibias vdd biasp {Ibias}
+* Current sink sets biasp: current flows VDD->XMbp->biasp->Ibias->VSS
+Ibias biasp vss {Ibias}
 XMbp biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbias}u L={Lbias}u nf=1
 
 * === Load ===
-RL out 0 10k
 CL out 0 5p
 
 * === Measurements ===
@@ -48,34 +48,27 @@ CL out 0 5p
 * Operating point
 op
 
-* Measure bias point info
-let vds1 = v(tail) - v(n1)
-let vds5 = v(vdd) - v(tail)
+* Power measurement (scalar from OP, must be before AC)
+let pwr = abs(v(vdd) * i(Vdd)) * 1e6
+echo "RESULT_POWER_UW" $&pwr
 
-* AC analysis
-ac dec 200 1 1G
-* Export complex v(out) for proper phase extraction
+* AC analysis — differential
+ac dec 100 1 100Meg
+* Export complex v(out) for proper phase extraction in Python
 wrdata ac_data v(out)
 
-* Find DC gain
+* DC gain
 meas ac dc_gain_db find vdb(out) at=10
 
-* Find GBW (0dB crossing)
+* GBW (0dB crossing)
 meas ac gbw_hz when vdb(out)=0
 
-* Phase margin from vp() — approximate for DE, Python will re-verify
+* Phase margin from vp() — approximate for DE ranking
 meas ac phase_at_gbw find vp(out) when vdb(out)=0
 let pm_approx = 180 + phase_at_gbw
 echo "RESULT_PHASE_MARGIN_DEG" $&pm_approx
 
-* Power
-let pwr = abs(v(vdd) * i(Vdd)) * 1e6
-echo "RESULT_POWER_UW" $&pwr
-
-* DC gain
 echo "RESULT_DC_GAIN_DB" $&dc_gain_db
-
-* GBW
 echo "RESULT_GBW_HZ" $&gbw_hz
 
 * DC sweep for output swing
@@ -90,7 +83,7 @@ alter Vdiff = 0
 alter @Vdiff[mag] = 0
 alter Vcm dc = 0.9
 alter @Vcm[mag] = 1
-ac dec 200 1 1G
+ac dec 100 1 100Meg
 meas ac cm_gain_db find vdb(out) at=10
 let cmrr = dc_gain_db - cm_gain_db
 echo "RESULT_CMRR_DB" $&cmrr
