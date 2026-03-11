@@ -1,5 +1,5 @@
-* SKY130 Two-Stage Miller OTA
-* PMOS input pair, NMOS active load, NMOS second stage
+* SKY130 Two-Stage Miller OTA — NMOS input pair
+* NMOS diff pair for higher gm/GBW, PMOS mirror load, PMOS CS second stage
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
@@ -9,36 +9,36 @@
 Vdd vdd 0 1.8
 Vss vss 0 0
 
-* Input stimulus — direct V sources (fast convergence)
+* Input stimulus — differential AC
 Vinp inp 0 DC 0.9 AC 0.5
 Vinm inm 0 DC 0.9 AC -0.5
 
-* === FIRST STAGE: PMOS diff pair + NMOS current mirror load ===
+* === FIRST STAGE: NMOS diff pair + PMOS current mirror load ===
 
-* Tail current source (PMOS)
-XM5 tail biasp vdd vdd sky130_fd_pr__pfet_01v8 W={W5}u L={L5}u nf=1
+* Tail current source (NMOS, from VSS)
+XM5 tail biasn vss vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
 
-* Differential pair (PMOS)
-XM1 n1 inp tail vdd sky130_fd_pr__pfet_01v8 W={W1}u L={L1}u nf=1
-XM2 n2 inm tail vdd sky130_fd_pr__pfet_01v8 W={W1}u L={L1}u nf=1
+* Differential pair (NMOS)
+XM1 n1 inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+XM2 n2 inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
 
-* Active load (NMOS current mirror)
-XM3 n1 n1 vss vss sky130_fd_pr__nfet_01v8 W={W3}u L={L3}u nf=1
-XM4 n2 n1 vss vss sky130_fd_pr__nfet_01v8 W={W3}u L={L3}u nf=1
+* Active load (PMOS current mirror)
+XM3 n1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
+XM4 n2 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
 
-* === SECOND STAGE: NMOS common-source + PMOS load ===
+* === SECOND STAGE: PMOS common-source + NMOS current source load ===
 
-XM6 out n2 vss vss sky130_fd_pr__nfet_01v8 W={W6}u L={L6}u nf=1
-XM7 out biasp vdd vdd sky130_fd_pr__pfet_01v8 W={W7}u L={L7}u nf=1
+XM6 out n2 vdd vdd sky130_fd_pr__pfet_01v8 W={W6}u L={L6}u nf=1
+XM7 out biasn vss vss sky130_fd_pr__nfet_01v8 W={W7}u L={L7}u nf=1
 
 * === Miller compensation (series Rc for RHP zero cancellation) ===
 Cc out n2rc {Cc}p
 Rc n2rc n2 {Rc}
 
 * === Bias generation ===
-* Current sink: VDD -> XMbp -> biasp -> Ibias -> VSS
-Ibias biasp vss {Ibias}
-XMbp biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbias}u L={Lbias}u nf=1
+* Current reference: VDD -> Rbias -> biasn -> NMOS diode to VSS
+Ibias vdd biasn {Ibias}
+XMbn biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbias}u L={Lbias}u nf=1
 
 * === Load ===
 CL out 0 5p
