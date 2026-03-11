@@ -1,17 +1,17 @@
 * SKY130 Two-Stage Miller OTA
 * PMOS input pair, NMOS active load, NMOS second stage
 
-.lib "sky130_models/sky130.lib.spice" tt
+.lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
+
+.options reltol=0.003 abstol=1e-12 vntol=1e-6
 
 * Supply
 Vdd vdd 0 1.8
 Vss vss 0 0
 
-* Input stimulus
-Vdiff diff 0 DC 0 AC 1
-Vcm cm 0 DC 0.9
-Einp inp 0 POLY(2) cm 0 diff 0 0 1 0.5
-Einm inm 0 POLY(2) cm 0 diff 0 0 1 -0.5
+* Input stimulus — direct V sources (fast convergence)
+Vinp inp 0 DC 0.9 AC 0.5
+Vinm inm 0 DC 0.9 AC -0.5
 
 * === FIRST STAGE: PMOS diff pair + NMOS current mirror load ===
 
@@ -60,6 +60,10 @@ wrdata ac_data v(out)
 meas ac dc_gain_db find vdb(out) at=10
 echo "RESULT_DC_GAIN_DB" $&dc_gain_db
 
+* Save the plot name for later CMRR reference
+let saved_dcgain = dc_gain_db
+set dcg_val = "$&saved_dcgain"
+
 * GBW (0dB crossing)
 meas ac gbw_hz when vdb(out)=0
 echo "RESULT_GBW_HZ" $&gbw_hz
@@ -70,20 +74,19 @@ let pm_approx = 180 + phase_at_gbw
 echo "RESULT_PHASE_MARGIN_DEG" $&pm_approx
 
 * === CMRR: measure common-mode gain ===
-* Switch to common-mode AC excitation
-alter Vdiff ac = 0
-alter Vcm ac = 1
+alter Vinp ac = 1
+alter Vinm ac = 1
 ac dec 50 1 100Meg
 meas ac cm_gain_db find vdb(out) at=10
-let cmrr = dc_gain_db - cm_gain_db
+let cmrr = $dcg_val - cm_gain_db
 echo "RESULT_CMRR_DB" $&cmrr
 
 * Restore differential excitation
-alter Vdiff ac = 1
-alter Vcm ac = 0
+alter Vinp ac = 0.5
+alter Vinm ac = -0.5
 
-* === Output swing: DC sweep ===
-dc Vdiff -0.5 0.5 0.001
+* === Output swing: DC sweep with very coarse step ===
+dc Vinp 0.4 1.4 0.1
 meas dc vout_max max v(out)
 meas dc vout_min min v(out)
 let swing = vout_max - vout_min
