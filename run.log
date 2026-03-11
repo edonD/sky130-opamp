@@ -4,139 +4,20 @@ Parameters: 15
 Specs: 6
 
 DE: 15 params, pop=30, patience=10, workers=8
-[DE] iter    1 | best: 3.631815e+01 | no_improve:   0 | div: 0.2891 | dt: 49.746s
-[DE] iter    2 | best: 3.631815e+01 | no_improve:   1 | div: 0.2718 | dt: 55.608s
-[DE] iter    3 | best: 1.920508e+01 | no_improve:   0 | div: 0.2560 | dt: 53.498s
-[DE] iter    4 | best: -3.323568e+00 | no_improve:   0 | div: 0.2433 | dt: 52.674s
-[DE] iter    5 | best: -3.323568e+00 | no_improve:   1 | div: 0.2203 | dt: 50.826s
-[DE] iter    6 | best: -3.323568e+00 | no_improve:   2 | div: 0.2250 | dt: 50.037s
-[DE] iter    7 | best: -3.323568e+00 | no_improve:   3 | div: 0.2171 | dt: 52.358s
-[DE] iter    8 | best: -3.323568e+00 | no_improve:   4 | div: 0.2101 | dt: 52.355s
-[DE] iter    9 | best: -5.131334e+00 | no_improve:   0 | div: 0.2079 | dt: 52.775s
-[DE] iter   10 | best: -5.131334e+00 | no_improve:   1 | div: 0.2023 | dt: 54.179s
-[DE] iter   11 | best: -5.131334e+00 | no_improve:   2 | div: 0.2025 | dt: 49.310s
-[DE] iter   12 | best: -6.034798e+00 | no_improve:   0 | div: 0.1927 | dt: 53.251s
-[DE] iter   13 | best: -6.034798e+00 | no_improve:   1 | div: 0.1850 | dt: 51.990s
-[DE] iter   14 | best: -6.034798e+00 | no_improve:   2 | div: 0.1836 | dt: 53.186s
-[DE] iter   15 | best: -6.034798e+00 | no_improve:   3 | div: 0.1854 | dt: 52.947s
-[DE] iter   16 | best: -6.034798e+00 | no_improve:   4 | div: 0.1857 | dt: 49.121s
-[DE] iter   17 | best: -6.034798e+00 | no_improve:   5 | div: 0.1849 | dt: 52.466s
-[DE] iter   18 | best: -6.034798e+00 | no_improve:   6 | div: 0.1758 | dt: 53.946s
-[DE] iter   19 | best: -6.080374e+00 | no_improve:   0 | div: 0.1762 | dt: 52.871s
-[DE] iter   20 | best: -6.138786e+00 | no_improve:   0 | div: 0.1761 | dt: 53.491s
-[DE] iter   21 | best: -6.218333e+00 | no_improve:   0 | div: 0.1753 | dt: 52.490s
-[DE] iter   22 | best: -6.218333e+00 | no_improve:   1 | div: 0.1749 | dt: 54.115s
-[DE] iter   23 | best: -6.218333e+00 | no_improve:   2 | div: 0.1713 | dt: 50.592s
-[DE] iter   24 | best: -6.218333e+00 | no_improve:   3 | div: 0.1717 | dt: 53.496s
-[DE] iter   25 | best: -6.218333e+00 | no_improve:   4 | div: 0.1686 | dt: 51.514s
-[DE] iter   26 | best: -6.218333e+00 | no_improve:   5 | div: 0.1682 | dt: 54.343s
-[DE] iter   27 | best: -6.218333e+00 | no_improve:   6 | div: 0.1678 | dt: 51.587s
-[DE] iter   28 | best: -6.218333e+00 | no_improve:   7 | div: 0.1694 | dt: 53.008s
-[DE] iter   29 | best: -6.218333e+00 | no_improve:   8 | div: 0.1689 | dt: 55.364s
-[DE] iter   30 | best: -6.218333e+00 | no_improve:   9 | div: 0.1650 | dt: 50.537s
-[DE] iter   31 | best: -6.218333e+00 | no_improve:  10 | div: 0.1631 | dt: 52.494s
-[DE] iter   32 | best: -6.218333e+00 | no_improve:  11 | div: 0.1631 | dt: 52.751s
-[DE] iter   33 | best: -6.218333e+00 | no_improve:  12 | div: 0.1666 | dt: 56.059s
-[DE] iter   34 | best: -6.218333e+00 | no_improve:  13 | div: 0.1647 | dt: 51.038s
-[DE] iter   35 | best: -6.218333e+00 | no_improve:  14 | div: 0.1658 | dt: 53.603s
-[DE] iter   36 | best: -6.218333e+00 | no_improve:  15 | div: 0.1621 | dt: 52.285s
-[DE] iter   37 | best: -6.218333e+00 | no_improve:  16 | div: 0.1592 | dt: 53.696s
-[DE] iter   38 | best: -6.218333e+00 | no_improve:  17 | div: 0.1555 | dt: 52.255s
-[DE] iter   39 | best: -6.218333e+00 | no_improve:  18 | div: 0.1497 | dt: 53.656s
-[DE] iter   40 | best: -6.259033e+00 | no_improve:   0 | div: 0.1511 | dt: 50.615s
-[DE] iter   41 | best: -6.259033e+00 | no_improve:   1 | div: 0.1482 | dt: 51.723s
-[DE] iter   42 | best: -6.259033e+00 | no_improve:   2 | div: 0.1462 | dt: 52.826s
-[DE] iter   43 | best: -6.259033e+00 | no_improve:   3 | div: 0.1435 | dt: 50.142s
-[DE] iter   44 | best: -6.259033e+00 | no_improve:   4 | div: 0.1435 | dt: 52.294s
-[DE] iter   45 | best: -6.259033e+00 | no_improve:   5 | div: 0.1391 | dt: 52.871s
-[DE] iter   46 | best: -6.259033e+00 | no_improve:   6 | div: 0.1391 | dt: 54.416s
-[DE] iter   47 | best: -6.259033e+00 | no_improve:   7 | div: 0.1412 | dt: 52.440s
-[DE] iter   48 | best: -6.259033e+00 | no_improve:   8 | div: 0.1412 | dt: 51.943s
-[DE] iter   49 | best: -6.259033e+00 | no_improve:   9 | div: 0.1418 | dt: 53.089s
-[DE] iter   50 | best: -6.259033e+00 | no_improve:  10 | div: 0.1385 | dt: 53.335s
-
-============================================================
-  Stop reason:  max_iterations
-  Converged:    False
-  Iterations:   50
-  Best metric:  -6.259033e+00
-  Diversity:    0.1385
-  Best parameters:
-    Cc: 1.167345e+00
-    Ibias: 2.662253e-05
-    L1: 2.036546e-01
-    L3: 1.437728e+00
-    L5: 1.438290e+00
-    L6: 1.045176e+00
-    L7: 8.488652e-01
-    Lbias: 2.622537e+00
-    Rc: 1.132162e+04
-    W1: 6.466551e+00
-    W3: 1.638891e+01
-    W5: 1.776572e+01
-    W6: 8.518529e+01
-    W7: 7.670770e+00
-    Wbias: 2.228366e+01
-============================================================
-
-  UGF = 1.07e+07 Hz, phase at UGF = 82.4 deg
-  PM from np.unwrap: 262.36 deg
-
-======================================================================
-  EVALUATION REPORT — SKY130 Operational Amplifier
-======================================================================
-
-  Score: 1.00 / 1.00  |  Time: 2627.4s
-  DE converged: False  |  Iterations: 50  |  Diversity: 0.1385
-  Stop reason: max_iterations
-
-  Specs met: 6/6
-
-  Spec                            Target     Measured     Unit   Status  Score
-  -------------------------------------------------------------------------
-  dc_gain_db                         >60       72.239       dB     PASS  1.00
-  gbw_hz                            >5e6     1.07e+07       Hz     PASS  1.00
-  phase_margin_deg                   >60      262.361      deg     PASS  1.00
-  power_uw                         <1000      127.056       uW     PASS  1.00
-  output_swing_v                    >1.2        1.500        V     PASS  1.00
-  cmrr_db                            >60       70.000       dB     PASS  1.00
-
-  Best Parameters:
-    Cc                   = 1.1673e+00
-    Ibias                = 2.6623e-05
-    L1                   = 2.0365e-01
-    L3                   = 1.4377e+00
-    L5                   = 1.4383e+00
-    L6                   = 1.0452e+00
-    L7                   = 8.4887e-01
-    Lbias                = 2.6225e+00
-    Rc                   = 1.1322e+04
-    W1                   = 6.4666e+00
-    W3                   = 1.6389e+01
-    W5                   = 1.7766e+01
-    W6                   = 8.5185e+01
-    W7                   = 7.6708e+00
-    Wbias                = 2.2284e+01
-
-======================================================================
-
-Traceback (most recent call last):
-  File "/home/ubuntu/sky130-opamp/evaluate.py", line 680, in <module>
-    score = main()
-  File "/home/ubuntu/sky130-opamp/evaluate.py", line 655, in main
-    json.dump({
-  File "/usr/lib/python3.10/json/__init__.py", line 179, in dump
-    for chunk in iterable:
-  File "/usr/lib/python3.10/json/encoder.py", line 431, in _iterencode
-    yield from _iterencode_dict(o, _current_indent_level)
-  File "/usr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
-    yield from chunks
-  File "/usr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
-    yield from chunks
-  File "/usr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
-    yield from chunks
-  File "/usr/lib/python3.10/json/encoder.py", line 438, in _iterencode
-    o = _default(o)
-  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type bool is not JSON serializable
+[DE] iter    1 | best: 1.000000e+06 | no_improve:   0 | div: 0.2893 | dt: 120.356s
+[DE] iter    2 | best: 1.000000e+06 | no_improve:   1 | div: 0.2893 | dt: 120.336s
+[DE] iter    3 | best: 1.000000e+06 | no_improve:   2 | div: 0.2893 | dt: 120.343s
+[DE] iter    4 | best: 1.000000e+06 | no_improve:   3 | div: 0.2893 | dt: 120.350s
+[DE] iter    5 | best: 1.000000e+06 | no_improve:   4 | div: 0.2893 | dt: 120.370s
+[DE] iter    6 | best: 1.000000e+06 | no_improve:   5 | div: 0.2893 | dt: 120.401s
+[DE] iter    7 | best: 1.000000e+06 | no_improve:   6 | div: 0.2893 | dt: 120.436s
+[DE] iter    8 | best: 1.000000e+06 | no_improve:   7 | div: 0.2893 | dt: 120.444s
+[DE] iter    9 | best: 1.000000e+06 | no_improve:   8 | div: 0.2893 | dt: 120.462s
+[DE] iter   10 | best: 1.000000e+06 | no_improve:   9 | div: 0.2893 | dt: 120.415s
+[DE] iter   11 | best: 1.000000e+06 | no_improve:  10 | div: 0.2893 | dt: 120.478s
+[DE] iter   12 | best: 1.000000e+06 | no_improve:  11 | div: 0.2893 | dt: 120.559s
+[DE] iter   13 | best: 1.000000e+06 | no_improve:  12 | div: 0.2893 | dt: 120.517s
+[DE] iter   14 | best: 1.000000e+06 | no_improve:  13 | div: 0.2893 | dt: 120.525s
+[DE] iter   15 | best: 1.000000e+06 | no_improve:  14 | div: 0.2893 | dt: 120.533s
+[DE] iter   16 | best: 1.000000e+06 | no_improve:  15 | div: 0.2893 | dt: 120.602s
+[DE] iter   17 | best: 1.000000e+06 | no_improve:  16 | div: 0.2893 | dt: 120.602s
