@@ -1,0 +1,16 @@
+name,min,max,scale
+W1,1,100,log
+L1,0.15,5,log
+W3,1,100,log
+L3,0.15,5,log
+W5,1,200,log
+L5,0.15,5,log
+W6,1,200,log
+L6,0.15,5,log
+W7,1,200,log
+L7,0.15,5,log
+Wbias,1,100,log
+Lbias,0.15,5,log
+Ibias,1e-5,1e-3,log
+Cc,0.5,50,log
+Rc,50,50000,log

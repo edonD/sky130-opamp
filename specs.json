@@ -1,0 +1,43 @@
+{
+  "name": "SKY130 Operational Amplifier",
+  "supply_v": 1.8,
+  "supply_type": "single",
+  "measurements": {
+    "dc_gain_db": {
+      "target": ">60",
+      "weight": 20,
+      "unit": "dB",
+      "description": "Open-loop DC gain"
+    },
+    "gbw_hz": {
+      "target": ">5e6",
+      "weight": 20,
+      "unit": "Hz",
+      "description": "Gain-bandwidth product"
+    },
+    "phase_margin_deg": {
+      "target": ">60",
+      "weight": 20,
+      "unit": "deg",
+      "description": "Phase margin at unity-gain crossover"
+    },
+    "power_uw": {
+      "target": "<1000",
+      "weight": 15,
+      "unit": "uW",
+      "description": "Total quiescent power dissipation"
+    },
+    "output_swing_v": {
+      "target": ">1.2",
+      "weight": 15,
+      "unit": "V",
+      "description": "Peak-to-peak output voltage swing"
+    },
+    "cmrr_db": {
+      "target": ">60",
+      "weight": 10,
+      "unit": "dB",
+      "description": "Common-mode rejection ratio at DC"
+    }
+  }
+}
