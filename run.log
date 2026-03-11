@@ -4,3 +4,7 @@ Parameters: 15
 Specs: 6
 
 DE: 15 params, pop=30, patience=10, workers=8
+[DE] iter    1 | best: 9.354391e+00 | no_improve:   0 | div: 0.2889 | dt: 62.955s
+[DE] iter    2 | best: 9.354391e+00 | no_improve:   1 | div: 0.2645 | dt: 66.898s
+[DE] iter    3 | best: 8.397985e+00 | no_improve:   0 | div: 0.2484 | dt: 59.518s
+[DE] iter    4 | best: 8.397985e+00 | no_improve:   1 | div: 0.2448 | dt: 58.715s
