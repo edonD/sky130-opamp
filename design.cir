@@ -31,8 +31,8 @@ XM4 n2 n1 vss vss sky130_fd_pr__nfet_01v8 W={W3}u L={L3}u nf=1
 XM6 out n2 vss vss sky130_fd_pr__nfet_01v8 W={W6}u L={L6}u nf=1
 XM7 out biasp vdd vdd sky130_fd_pr__pfet_01v8 W={W7}u L={L7}u nf=1
 
-* === Miller compensation ===
-Cc out n2 {Cc}p
+* === Miller compensation (series Rc for RHP zero cancellation) ===
+Cc out n2rc {Cc}p
 Rc n2rc n2 {Rc}
 
 * === Bias generation ===
@@ -63,6 +63,11 @@ meas ac dc_gain_db find vdb(out) at=10
 * Find GBW (0dB crossing)
 meas ac gbw_hz when vdb(out)=0
 
+* Phase margin from vp() — approximate for DE, Python will re-verify
+meas ac phase_at_gbw find vp(out) when vdb(out)=0
+let pm_approx = 180 + phase_at_gbw
+echo "RESULT_PHASE_MARGIN_DEG" $&pm_approx
+
 * Power
 let pwr = abs(v(vdd) * i(Vdd)) * 1e6
 echo "RESULT_POWER_UW" $&pwr
@@ -89,10 +94,6 @@ ac dec 200 1 1G
 meas ac cm_gain_db find vdb(out) at=10
 let cmrr = dc_gain_db - cm_gain_db
 echo "RESULT_CMRR_DB" $&cmrr
-
-* Phase margin (compute from complex data in Python — echo placeholder)
-* The agent MUST compute true PM from ac_data using np.unwrap
-echo "RESULT_PHASE_MARGIN_DEG 0"
 
 echo "RESULT_DONE"
 .endc

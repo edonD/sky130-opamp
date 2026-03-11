@@ -164,6 +164,69 @@ def parse_ngspice_output(output: str) -> Dict[str, float]:
 
 
 # ---------------------------------------------------------------------------
+# Phase margin from ac_data (proper unwrapped computation)
+# ---------------------------------------------------------------------------
+
+def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional[float]:
+    """Read ngspice wrdata output, compute PM with np.unwrap.
+
+    wrdata format: each line has 'freq  real  imag' (tab or space separated).
+    ngspice wrdata writes index, real, imag on alternating lines or
+    freq real imag depending on version. We handle both.
+    """
+    data_file = os.path.join(PROJECT_DIR, ac_data_path)
+    if not os.path.exists(data_file):
+        print(f"  WARNING: {data_file} not found, cannot compute unwrapped PM")
+        return None
+
+    try:
+        raw = np.loadtxt(data_file)
+        if raw.ndim != 2 or raw.shape[1] < 3:
+            print(f"  WARNING: ac_data has unexpected shape {raw.shape}")
+            return None
+
+        freq = raw[:, 0]
+        real_part = raw[:, 1]
+        imag_part = raw[:, 2]
+
+        # Filter out non-positive frequencies (DC point at freq=0)
+        mask = freq > 0
+        freq = freq[mask]
+        real_part = real_part[mask]
+        imag_part = imag_part[mask]
+
+        if len(freq) < 10:
+            print(f"  WARNING: too few AC data points ({len(freq)})")
+            return None
+
+        # Compute gain in dB and phase in degrees (unwrapped)
+        magnitude = np.sqrt(real_part**2 + imag_part**2)
+        gain_db = 20 * np.log10(np.maximum(magnitude, 1e-30))
+        phase_rad = np.arctan2(imag_part, real_part)
+        phase_unwrapped = np.unwrap(phase_rad)
+        phase_deg = np.degrees(phase_unwrapped)
+
+        # Find unity gain crossing (0 dB)
+        # Look for where gain_db crosses 0 from above
+        for i in range(len(gain_db) - 1):
+            if gain_db[i] > 0 and gain_db[i + 1] <= 0:
+                # Linear interpolation
+                frac = gain_db[i] / (gain_db[i] - gain_db[i + 1])
+                phase_at_ugf = phase_deg[i] + frac * (phase_deg[i + 1] - phase_deg[i])
+                pm = 180.0 + phase_at_ugf
+                freq_ugf = freq[i] * (freq[i + 1] / freq[i]) ** frac
+                print(f"  UGF = {freq_ugf:.2e} Hz, phase at UGF = {phase_at_ugf:.1f} deg")
+                return pm
+
+        print("  WARNING: no 0dB crossing found in AC data")
+        return None
+
+    except Exception as e:
+        print(f"  WARNING: failed to compute PM from ac_data: {e}")
+        return None
+
+
+# ---------------------------------------------------------------------------
 # Cost function — generic, reads targets from specs.json
 # ---------------------------------------------------------------------------
 
@@ -565,6 +628,12 @@ def main():
         pass
 
     measurements = final["measurements"] if not final.get("error") else {}
+
+    # Compute proper phase margin from ac_data using np.unwrap
+    pm_unwrapped = compute_phase_margin_from_ac_data()
+    if pm_unwrapped is not None:
+        print(f"  PM from np.unwrap: {pm_unwrapped:.2f} deg")
+        measurements["RESULT_PHASE_MARGIN_DEG"] = pm_unwrapped
 
     # Score
     score, details = score_measurements(measurements, specs)
