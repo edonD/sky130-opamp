@@ -47,7 +47,7 @@ let pwr = abs(v(vdd) * i(Vdd)) * 1e6
 echo "RESULT_POWER_UW" $&pwr
 
 * AC analysis — extend to 10G to catch high-GBW designs
-ac dec 20 1 10G
+ac dec 20 1 1G
 wrdata ac_data v(out)
 
 meas ac dc_gain_db find vdb(out) at=10
