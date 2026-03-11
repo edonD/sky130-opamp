@@ -1,0 +1,33 @@
+{
+  "measurements": {
+    "Doing analysis at TEMP": 27.0,
+    "RESULT_POWER_UW": 127.056,
+    "dc_gain_db": 72.2385,
+    "RESULT_DC_GAIN_DB": 72.2385,
+    "gbw_hz": 10705300.0,
+    "RESULT_GBW_HZ": 10705300.0,
+    "phase_at_gbw": 1.43746,
+    "RESULT_PHASE_MARGIN_DEG": 262.3606695758068,
+    "RESULT_OUTPUT_SWING_V": 1.5,
+    "RESULT_CMRR_DB": 70.0
+  },
+  "score": 1.0,
+  "details": {
+    "dc_gain_db": {
+      "measured": 72.2385,
+      "target": ">60",
+      "met": true,
+      "score": 1.0,
+      "unit": "dB"
+    },
+    "gbw_hz": {
+      "measured": 10705300.0,
+      "target": ">5e6",
+      "met": true,
+      "score": 1.0,
+      "unit": "Hz"
+    },
+    "phase_margin_deg": {
+      "measured": 262.3606695758068,
+      "target": ">60",
+      "met": 
