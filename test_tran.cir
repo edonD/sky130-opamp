@@ -1,0 +1,38 @@
+* Quick transient test
+.lib "sky130_models/sky130_tt.lib.spice" tt
+.options reltol=0.003 abstol=1e-12 vntol=1e-6
+
+Vdd vdd 0 1.8
+Vss vss 0 0
+
+Vin inp 0 PWL(0 0.85 0.99u 0.85 1u 0.95 9.99u 0.95 10u 0.85 15u 0.85)
+
+Ibias vdd biasn 9.995e-06
+XMbn biasn biasn vss vss sky130_fd_pr__nfet_01v8 W=11.33u L=1.27u nf=1
+XMbp1 biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W=29.0u L=0.875u nf=1
+XMbp2 biasp biasn vss vss sky130_fd_pr__nfet_01v8 W=11.33u L=1.27u nf=1
+
+XM5 tail biasn vss vss sky130_fd_pr__nfet_01v8 W=37.11u L=6.14u nf=1
+XM1 n1 out tail vss sky130_fd_pr__nfet_01v8 W=25.69u L=1.58u nf=1
+XM2 n2 inp tail vss sky130_fd_pr__nfet_01v8 W=25.69u L=1.58u nf=1
+XM3 n1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W=27.05u L=0.758u nf=1
+XM4 n2 n1 vdd vdd sky130_fd_pr__pfet_01v8 W=27.05u L=0.758u nf=1
+
+XM6 out n2 vdd vdd sky130_fd_pr__pfet_01v8 W=22.04u L=0.227u nf=1
+XM7 out biasn vss vss sky130_fd_pr__nfet_01v8 W=62.66u L=0.602u nf=1
+
+Rc n2 n2rc 11819
+Cc n2rc out 4.67p
+
+CL out 0 5p
+
+.control
+op
+echo "OP node voltages:"
+print v(biasn) v(biasp) v(tail) v(n1) v(n2) v(out)
+
+tran 5n 15u
+wrdata test_tran_out v(inp) v(out)
+echo "TRAN_DONE"
+.endc
+.end

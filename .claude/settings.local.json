@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python validate_and_plot.py 2>&1)",
+      "Bash(ls val_tran_data* val_ac_data* val_dc_data* 2>/dev/null; echo \"---\"; cat /c/Users/derguti/sky130-opamp/val_ac_data 2>/dev/null | head -3)",
+      "Bash(ngspice -b /tmp/test_tran.cir 2>&1 | tail -40)",
+      "Bash(cp /tmp/test_tran.cir ./test_tran.cir && ngspice -b test_tran.cir 2>&1 | tail -40)",
+      "Bash(ls sky130_models/*.lib.spice sky130_models/*ultra* 2>/dev/null | head -10; echo \"===\"; ls sky130_models/*.spice 2>/dev/null | head -10)",
+      "Bash(ngspice -b test_tran.cir 2>&1 | tail -30)",
+      "Bash(grep -l \"sky130_fd_pr__nfet_01v8__toxe_slope\" sky130_models/sky130_fd_pr_models/cells/*mismatch* 2>/dev/null; echo \"===\"; grep \"toxe_slope\" sky130_models/sky130_fd_pr_models/cells/sky130_fd_pr__nfet_01v8__mismatch.corner.spice 2>/dev/null | head -5)",
+      "Bash(grep -l \"wlod_diff\" sky130_models/sky130_fd_pr_models/cells/*.spice sky130_models/sky130_fd_pr_models/corners/tt/*.spice 2>/dev/null | head -5)",
+      "Bash(sed -i 's|sky130_ultra_minimal.lib.spice|sky130_tt.lib.spice|' test_tran.cir && ngspice -b test_tran.cir 2>&1 | tail -25)"
+    ]
+  }
+}
