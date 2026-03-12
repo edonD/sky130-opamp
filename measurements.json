@@ -1,57 +1,57 @@
 {
   "measurements": {
     "Doing analysis at TEMP": 27.0,
-    "RESULT_POWER_UW": 206.554,
-    "dc_gain_db": 72.336,
-    "RESULT_DC_GAIN_DB": 72.336,
-    "gbw_hz": 19841900.0,
-    "RESULT_GBW_HZ": 19841900.0,
-    "cm_gain_db": -17.8931,
-    "RESULT_CMRR_DB": 90.2291,
-    "vout_max": 1.77428,
-    "vout_min": 1.44819e-09,
-    "RESULT_OUTPUT_SWING_V": 1.77428,
-    "RESULT_PHASE_MARGIN_DEG": 122.52832002744705
+    "RESULT_POWER_UW": 317.524,
+    "dc_gain_db": 75.1398,
+    "RESULT_DC_GAIN_DB": 75.1398,
+    "gbw_hz": 15111500.0,
+    "RESULT_GBW_HZ": 15111500.0,
+    "cm_gain_db": -0.391395,
+    "RESULT_CMRR_DB": 75.5312,
+    "vout_max": 1.78571,
+    "vout_min": 2.19227e-09,
+    "RESULT_OUTPUT_SWING_V": 1.78571,
+    "RESULT_PHASE_MARGIN_DEG": 116.6774316320928
   },
   "score": 1.0,
   "details": {
     "dc_gain_db": {
-      "measured": 72.336,
+      "measured": 75.1398,
       "target": ">60",
       "met": true,
       "score": 1.0,
       "unit": "dB"
     },
     "gbw_hz": {
-      "measured": 19841900.0,
+      "measured": 15111500.0,
       "target": ">5e6",
       "met": true,
       "score": 1.0,
       "unit": "Hz"
     },
     "phase_margin_deg": {
-      "measured": 122.52832002744705,
+      "measured": 116.6774316320928,
       "target": ">60",
       "met": true,
       "score": 1.0,
       "unit": "deg"
     },
     "power_uw": {
-      "measured": 206.554,
+      "measured": 317.524,
       "target": "<1000",
       "met": true,
       "score": 1.0,
       "unit": "uW"
     },
     "output_swing_v": {
-      "measured": 1.77428,
+      "measured": 1.78571,
       "target": ">1.2",
       "met": true,
       "score": 1.0,
       "unit": "V"
     },
     "cmrr_db": {
-      "measured": 90.2291,
+      "measured": 75.5312,
       "target": ">60",
       "met": true,
       "score": 1.0,
@@ -59,29 +59,32 @@
     }
   },
   "parameters": {
-    "Cc": 4.666438318258835,
-    "Ibias": 9.994908928225167e-06,
-    "L1": 1.581460082846346,
-    "L3": 0.7584988025913545,
-    "L5": 6.136897796674807,
-    "L6": 0.2271294623935909,
-    "L7": 0.6024717596860268,
-    "Lbn": 1.2707119177958432,
-    "Lbp": 0.8751213437062734,
-    "Rc": 11819.031100938728,
-    "W1": 25.694791499854123,
-    "W3": 27.045780070413894,
-    "W5": 37.11073880050474,
-    "W6": 22.03615914749874,
-    "W7": 62.66244487173147,
-    "Wbn": 11.3338149287469,
-    "Wbp": 28.995138011623094
+    "Cc": 3.2303661993744366,
+    "Ibias1": 2.95898460296833e-05,
+    "Ibias2": 1.4300836043257158e-05,
+    "L1": 1.238291880307446,
+    "L3": 1.4862166556310874,
+    "L5": 1.6582579071760783,
+    "L6": 0.32480769640820356,
+    "L7": 0.8243571046524973,
+    "Lbn1": 1.5924211919091107,
+    "Lbn2": 1.056990488668073,
+    "Lbp": 1.197035415098829,
+    "Rc": 10968.053807680419,
+    "W1": 5.012384350785684,
+    "W3": 88.14265823454176,
+    "W5": 28.871849166670916,
+    "W6": 48.938808689058206,
+    "W7": 49.94087942677321,
+    "Wbn1": 44.35826993537458,
+    "Wbn2": 11.193556413194738,
+    "Wbp": 86.34137199785634
   },
   "de_result": {
-    "converged": false,
-    "iterations": 50,
-    "diversity": 0.13806013456437163,
-    "stop_reason": "max_iterations",
-    "best_metric": -6.823037333333334
+    "converged": true,
+    "iterations": 48,
+    "diversity": 0.15247307246477626,
+    "stop_reason": "stagnated (div=0.1525, no_improve=30)",
+    "best_metric": -6.408612554403093
   }
 }
