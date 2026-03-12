@@ -2,15 +2,52 @@
   "measurements": {
     "RESULT_POWER_UW": 202.843,
     "RESULT_DC_GAIN_DB": 64.4811,
-    "RESULT_GBW_HZ": 12534000.0,
+    "RESULT_GBW_HZ": 12531200.0,
+    "RESULT_PM_RAW": 178.615,
     "RESULT_CMRR_DB": 87.7769,
     "RESULT_OUTPUT_SWING_V": 1.79134,
-    "RESULT_PHASE_MARGIN_DEG": 100.61186554499851,
-    "RESULT_GBW_HZ_UNWRAP": 12530863.594320398
+    "RESULT_PHASE_MARGIN_DEG": 100.61732215835684
   },
-  "score": 159.00957684833284,
-  "all_met": true,
-  "specs_met": 6,
-  "trials": 60,
-  "elapsed": 322.5063352584839
+  "operating_point": {
+    "OP_VDD": 1.8,
+    "OP_BIASN": 0.648291,
+    "OP_BIASP": 0.702418,
+    "OP_TAIL": 0.31556,
+    "OP_N1": 0.880961,
+    "OP_N2": 0.880961,
+    "OP_OUT": 1.51816
+  },
+  "spec_results": {
+    "dc_gain_db": {
+      "value": 64.4811,
+      "target": ">60",
+      "met": true
+    },
+    "gbw_hz": {
+      "value": 12531200.0,
+      "target": ">5e6",
+      "met": true
+    },
+    "phase_margin_deg": {
+      "value": 100.61732215835684,
+      "target": ">60",
+      "met": true
+    },
+    "power_uw": {
+      "value": 202.843,
+      "target": "<1000",
+      "met": true
+    },
+    "output_swing_v": {
+      "value": 1.79134,
+      "target": ">1.2",
+      "met": true
+    },
+    "cmrr_db": {
+      "value": 87.7769,
+      "target": ">60",
+      "met": true
+    }
+  },
+  "all_specs_met": true
 }

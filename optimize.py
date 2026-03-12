@@ -230,6 +230,21 @@ def main():
     sampler = TPESampler(n_startup_trials=max(20, len(params) * 2), seed=42)
     study = optuna.create_study(direction="maximize", sampler=sampler)
 
+    # Seed with known-good solution from best_parameters.csv if it exists
+    best_csv = os.path.join(PROJECT_DIR, "best_parameters.csv")
+    if os.path.exists(best_csv):
+        try:
+            seed_params = {}
+            with open(best_csv) as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    seed_params[row["name"]] = float(row["value"])
+            if seed_params:
+                study.enqueue_trial(seed_params)
+                print(f"Seeded with known-good solution from best_parameters.csv")
+        except Exception as e:
+            print(f"Could not seed: {e}")
+
     t0 = time.time()
     study.optimize(
         lambda trial: objective(trial, template, params, specs),

@@ -1,1 +1,3 @@
 step	commit	score	topology	specs_met	notes
+1	3018073	159.0	two-stage-miller-nmos-input	6/6	gain=64.5dB GBW=12.5MHz PM=100.6deg pwr=203uW swing=1.79V cmrr=87.8dB
+2	pending	159.0	two-stage-miller-nmos-input	6/6	validated: all transistors SAT, transient stable (0.8% OS), 300+ trials converged
