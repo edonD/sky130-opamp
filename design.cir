@@ -1,5 +1,5 @@
 * SKY130 Two-Stage Miller OTA — NMOS input pair
-* Proven simple topology, optimized parameter ranges for deeper convergence
+* Proven simple topology, tightened ranges around best-known optimum for deeper DE convergence
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
