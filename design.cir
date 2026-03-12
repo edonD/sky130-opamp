@@ -1,5 +1,5 @@
 * SKY130 Two-Stage Miller OTA — NMOS input pair
-* Iteration 12: bias toward high gain (longer L1/L3/L5) + high CMRR
+* Iteration 13: high gain + high CMRR via longer Lbn/L5 minimums
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
