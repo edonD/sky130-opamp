@@ -3,10 +3,24 @@ Design: SKY130 Operational Amplifier
 Parameters: 17
 Specs: 6
 
-DE: 17 params, pop=100, patience=50, workers=8
-[DE] iter    1 | best: 1.609345e+03 | no_improve:   0 | div: 0.2886 | dt: 327.610s
-[DE] iter    2 | best: 1.595328e+03 | no_improve:   0 | div: 0.2837 | dt: 350.526s
-[DE] iter    3 | best: 1.533480e+03 | no_improve:   0 | div: 0.2790 | dt: 340.136s
-[DE] iter    4 | best: 1.533480e+03 | no_improve:   1 | div: 0.2706 | dt: 304.844s
-[DE] iter    5 | best: 2.998469e+02 | no_improve:   2 | div: 0.2625 | dt: 375.965s
-[DE] iter    6 | best: 2.998469e+02 | no_improve:   3 | div: 0.2594 | dt: 367.856s
+DE: 17 params, pop=34, patience=10, workers=8
+[DE] iter    1 | best: 2.033893e+02 | no_improve:   0 | div: 0.2882 | dt: 114.498s
+[DE] iter    2 | best: 2.033893e+02 | no_improve:   1 | div: 0.2709 | dt: 125.069s
+[DE] iter    3 | best: 1.958184e+02 | no_improve:   0 | div: 0.2548 | dt: 118.485s
+[DE] iter    4 | best: 1.958184e+02 | no_improve:   1 | div: 0.2476 | dt: 110.376s
+[DE] iter    5 | best: 1.958184e+02 | no_improve:   2 | div: 0.2463 | dt: 118.647s
+[DE] iter    6 | best: 1.958184e+02 | no_improve:   3 | div: 0.2450 | dt: 115.350s
+[DE] iter    7 | best: 1.958184e+02 | no_improve:   4 | div: 0.2367 | dt: 102.130s
+[DE] iter    8 | best: 1.958184e+02 | no_improve:   5 | div: 0.2327 | dt: 124.533s
+[DE] iter    9 | best: 1.958184e+02 | no_improve:   6 | div: 0.2261 | dt: 125.601s
+[DE] iter   10 | best: 1.958184e+02 | no_improve:   7 | div: 0.2217 | dt: 128.349s
+[DE] iter   11 | best: 1.958184e+02 | no_improve:   8 | div: 0.2207 | dt: 121.389s
+[DE] iter   12 | best: 1.958184e+02 | no_improve:   9 | div: 0.2175 | dt: 121.090s
+[[DE] iter   13 | best: 1.356851e+03 | no_improve:   2 | div: 0.2305 | dt: 328.448s
+[DE] iter   14 | best: 1.356851e+03 | no_improve:   3 | div: 0.2289 | dt: 343.847s
+[DE] iter   15 | best: 1.356851e+03 | no_improve:   4 | div: 0.2263 | dt: 329.633s
+DE] iter   16 | best: 1.952840e+02 | no_improve:   0 | div: 0.2066 | dt: 123.561s
+[DE] iter   17 | best: 1.952840e+02 | no_improve:   1 | div: 0.2027 | dt: 120.828s
+[DE] iter   18 | best: 1.952793e+02 | no_improve:   0 | div: 0.1992 | dt: 128.854s
+[DE] iter   19 | best: 1.952793e+02 | no_improve:   1 | div: 0.1969 | dt: 122.338s
+[DE] iter   20 | best: 1.952793e+02 | no_improve:   2 | div: 0.1955 | dt: 125.970s

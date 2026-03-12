@@ -1,6 +1,5 @@
 * SKY130 Two-Stage Miller OTA — NMOS input pair (v2)
-* Same proven topology, wider W ranges for second stage
-* Targeting higher gain margins and better CMRR
+* Cascode tail for improved CMRR, optimized bias sharing
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
@@ -22,10 +21,20 @@ XMbn biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 XMbp1 biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
 XMbp2 biasp biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 
+* Cascode bias for tail (diode-connected NMOS)
+XMcbn cascn cascn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
+Ibcn vdd cascn {Ibias}
+
 * === FIRST STAGE ===
-XM5 tail biasn vss vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
+* Cascode tail current source for improved CMRR
+XM5a taila biasn vss vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
+XM5b tail cascn taila vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
+
+* Diff pair
 XM1 n1 inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
 XM2 n2 inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+
+* PMOS active load (current mirror)
 XM3 n1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
 XM4 n2 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
 
