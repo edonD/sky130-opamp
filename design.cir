@@ -1,5 +1,5 @@
-* SKY130 Two-Stage Miller OTA — PMOS input pair
-* PMOS input for higher intrinsic gain, NMOS current mirror load
+* SKY130 Two-Stage Miller OTA — NMOS input pair
+* Iteration 11: wider ranges + increased DE population for deeper exploration
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
@@ -14,29 +14,23 @@ Vinp inp 0 DC 0.9 AC 0.5
 Vinm inm 0 DC 0.9 AC -0.5
 
 * === BIAS GENERATION ===
-Ibias vdd biasp {Ibias}
-XMbp biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
+Ibias vdd biasn {Ibias}
+XMbn biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 
-* NMOS bias mirror
-XMbn1 biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
-XMbn2 biasn biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
+* PMOS bias: PMOS diode loaded by NMOS mirror
+XMbp1 biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
+XMbp2 biasp biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 
-* === FIRST STAGE — PMOS diff pair with NMOS load ===
-* Tail current source (PMOS)
-XM5 tail biasp vdd vdd sky130_fd_pr__pfet_01v8 W={W5}u L={L5}u nf=1
-
-* PMOS input pair
-XM1 n1 inm tail vdd sky130_fd_pr__pfet_01v8 W={W1}u L={L1}u nf=1
-XM2 n2 inp tail vdd sky130_fd_pr__pfet_01v8 W={W1}u L={L1}u nf=1
-
-* NMOS current mirror load
-XM3 n1 n1 vss vss sky130_fd_pr__nfet_01v8 W={W3}u L={L3}u nf=1
-XM4 n2 n1 vss vss sky130_fd_pr__nfet_01v8 W={W3}u L={L3}u nf=1
+* === FIRST STAGE ===
+XM5 tail biasn vss vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
+XM1 n1 inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+XM2 n2 inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+XM3 n1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
+XM4 n2 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
 
 * === SECOND STAGE ===
-* NMOS common-source amplifier with PMOS current source load
-XM6 out n2 vss vss sky130_fd_pr__nfet_01v8 W={W6}u L={L6}u nf=1
-XM7 out biasp vdd vdd sky130_fd_pr__pfet_01v8 W={W7}u L={L7}u nf=1
+XM6 out n2 vdd vdd sky130_fd_pr__pfet_01v8 W={W6}u L={L6}u nf=1
+XM7 out biasn vss vss sky130_fd_pr__nfet_01v8 W={W7}u L={L7}u nf=1
 
 * === Miller compensation ===
 Rc n2 n2rc {Rc}
