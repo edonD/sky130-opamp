@@ -1,7 +1,6 @@
-* SKY130 Folded Cascode OTA — NMOS input pair
-* Simple folded cascode: PMOS current sources + NMOS cascode current mirror
-* Single-ended output via cascode mirror (M7 diode, M8 mirror)
-* No PMOS cascode — better output swing at 1.8V supply
+* SKY130 Two-Stage Miller OTA — NMOS input pair (v2)
+* Same proven topology, wider W ranges for second stage
+* Targeting higher gain margins and better CMRR
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
@@ -16,41 +15,27 @@ Vinp inp 0 DC 0.9 AC 0.5
 Vinm inm 0 DC 0.9 AC -0.5
 
 * === BIAS GENERATION ===
-* Master bias current
-Ibias vdd biasp {Ibias}
+Ibias vdd biasn {Ibias}
+XMbn biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 
-* PMOS diode for bias
-XMbp biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
+* PMOS bias: PMOS diode loaded by NMOS mirror
+XMbp1 biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
+XMbp2 biasp biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 
-* NMOS bias mirror
-XMbn1 biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
-XMbn2 biasn biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
+* === FIRST STAGE ===
+XM5 tail biasn vss vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
+XM1 n1 inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+XM2 n2 inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
+XM3 n1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
+XM4 n2 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
 
-* NMOS cascode bias (diode-connected NMOS for Vcasn)
-XMcbn casn casn vss vss sky130_fd_pr__nfet_01v8 W={Wcn}u L={Lcn}u nf=1
-Ibcn vdd casn {Ibias}
+* === SECOND STAGE ===
+XM6 out n2 vdd vdd sky130_fd_pr__pfet_01v8 W={W6}u L={L6}u nf=1
+XM7 out biasn vss vss sky130_fd_pr__nfet_01v8 W={W7}u L={L7}u nf=1
 
-* === INPUT DIFFERENTIAL PAIR ===
-* Tail current source
-XMtail tail biasn vss vss sky130_fd_pr__nfet_01v8 W={Wtail}u L={Ltail}u nf=1
-
-* NMOS diff pair
-XM1 fa inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
-XM2 out inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
-
-* === PMOS FOLD CURRENT SOURCES ===
-* Long L for high output impedance (ro limits gain on PMOS side)
-XM5 fa biasp vdd vdd sky130_fd_pr__pfet_01v8 W={W5}u L={L5}u nf=1
-XM6 out biasp vdd vdd sky130_fd_pr__pfet_01v8 W={W5}u L={L5}u nf=1
-
-* === NMOS CASCODE CURRENT MIRROR ===
-* Diode (reference) side — current from fa flows down
-XM3 fa casn na vss sky130_fd_pr__nfet_01v8 W={W3}u L={L3}u nf=1
-XM7 na na vss vss sky130_fd_pr__nfet_01v8 W={W7}u L={L7}u nf=1
-
-* Mirror (output) side — mirrors current to output
-XM4 out casn nb vss sky130_fd_pr__nfet_01v8 W={W3}u L={L3}u nf=1
-XM8 nb na vss vss sky130_fd_pr__nfet_01v8 W={W7}u L={L7}u nf=1
+* === Miller compensation ===
+Rc n2 n2rc {Rc}
+Cc n2rc out {Cc}p
 
 * === Load ===
 CL out 0 5p
@@ -63,7 +48,7 @@ echo "RESULT_POWER_UW" $&pwr
 
 * AC analysis
 ac dec 20 1 1G
-wrdata ac_data v(out)
+wrdata {ac_file} v(out)
 
 meas ac dc_gain_db find vdb(out) at=10
 echo "RESULT_DC_GAIN_DB" $&dc_gain_db

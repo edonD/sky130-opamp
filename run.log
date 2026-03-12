@@ -1,8 +1,12 @@
 Loading design...
 Design: SKY130 Operational Amplifier
-Parameters: 21
+Parameters: 17
 Specs: 6
 
-DE: 21 params, pop=105, patience=50, workers=8
-[DE] iter    1 | best: 3.437903e+02 | no_improve:   0 | div: 0.2887 | dt: 192.678s
-[DE] iter    2 | best: 3.103061e+02 | no_improve:   0 | div: 0.2727 | dt: 189.911s
+DE: 17 params, pop=100, patience=50, workers=8
+[DE] iter    1 | best: 1.609345e+03 | no_improve:   0 | div: 0.2886 | dt: 327.610s
+[DE] iter    2 | best: 1.595328e+03 | no_improve:   0 | div: 0.2837 | dt: 350.526s
+[DE] iter    3 | best: 1.533480e+03 | no_improve:   0 | div: 0.2790 | dt: 340.136s
+[DE] iter    4 | best: 1.533480e+03 | no_improve:   1 | div: 0.2706 | dt: 304.844s
+[DE] iter    5 | best: 2.998469e+02 | no_improve:   2 | div: 0.2625 | dt: 375.965s
+[DE] iter    6 | best: 2.998469e+02 | no_improve:   3 | div: 0.2594 | dt: 367.856s
