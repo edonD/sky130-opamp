@@ -8,3 +8,4 @@ step	commit	score	topology	specs_met	notes
 6	64fc9d9	1.00	two-stage-miller-nmos-input	6/6	gain=78.9dB GBW=11.2MHz PM=110.5deg power=170uW swing=1.79V CMRR=84.5dB — reverted to simple topology, wider ranges, 50-iter DE
 7	9a286ad	1.00	two-stage-miller-nmos-input	6/6	gain=72.3dB GBW=19.8MHz PM=122.5deg power=207uW swing=1.77V CMRR=90.2dB — tightened ranges, best metric -6.82 (new record)
 8	f100cc7	1.00	two-stage-miller-indep-bias	6/6	gain=75.1dB GBW=15.1MHz PM=116.7deg power=318uW swing=1.79V CMRR=75.5dB — independent stage biasing, DE converged at iter 48
+9	dd51e44	1.00	two-stage-miller-nmos-input	6/6	gain=68.5dB GBW=15.5MHz PM=120.2deg power=138uW swing=1.79V CMRR=83.2dB — narrow ranges around iter 7 optimum, metric -6.70
