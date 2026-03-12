@@ -1,0 +1,130 @@
+Loading design...
+Design: SKY130 Operational Amplifier
+Parameters: 17
+Specs: 6
+
+DE: 17 params, pop=34, patience=10, workers=8
+  Seeding DE with previous best parameters
+[DE] iter    1 | best: 6.532681e+01 | no_improve:   0 | div: 0.3126 | dt: 105.440s
+[DE] iter    2 | best: 3.159681e+01 | no_improve:   0 | div: 0.2925 | dt: 104.439s
+[DE] iter    3 | best: 6.260572e+00 | no_improve:   0 | div: 0.2736 | dt: 95.766s
+[DE] iter    4 | best: 6.260572e+00 | no_improve:   1 | div: 0.2471 | dt: 105.102s
+[DE] iter    5 | best: -2.038996e+00 | no_improve:   0 | div: 0.2344 | dt: 105.180s
+[DE] iter    6 | best: -2.038996e+00 | no_improve:   1 | div: 0.2325 | dt: 100.624s
+[DE] iter    7 | best: -2.038996e+00 | no_improve:   2 | div: 0.2347 | dt: 101.947s
+[DE] iter    8 | best: -2.038996e+00 | no_improve:   3 | div: 0.2254 | dt: 103.238s
+[DE] iter    9 | best: -2.038996e+00 | no_improve:   4 | div: 0.2241 | dt: 111.105s
+[DE] iter   10 | best: -2.038996e+00 | no_improve:   5 | div: 0.2173 | dt: 103.614s
+[DE] iter   11 | best: -3.598542e+00 | no_improve:   0 | div: 0.2038 | dt: 106.904s
+[DE] iter   12 | best: -3.598542e+00 | no_improve:   1 | div: 0.2008 | dt: 102.691s
+[DE] iter   13 | best: -3.598542e+00 | no_improve:   2 | div: 0.1991 | dt: 104.390s
+[DE] iter   14 | best: -4.473745e+00 | no_improve:   0 | div: 0.1985 | dt: 100.804s
+[DE] iter   15 | best: -4.473745e+00 | no_improve:   1 | div: 0.1941 | dt: 119.750s
+[DE] iter   16 | best: -4.473745e+00 | no_improve:   2 | div: 0.1922 | dt: 124.635s
+[DE] iter   17 | best: -4.473745e+00 | no_improve:   3 | div: 0.1936 | dt: 107.837s
+[DE] iter   18 | best: -4.534781e+00 | no_improve:   0 | div: 0.1896 | dt: 121.327s
+[DE] iter   19 | best: -4.534781e+00 | no_improve:   1 | div: 0.1871 | dt: 103.107s
+[DE] iter   20 | best: -5.144397e+00 | no_improve:   0 | div: 0.1801 | dt: 120.350s
+[DE] iter   21 | best: -5.144397e+00 | no_improve:   1 | div: 0.1787 | dt: 116.689s
+[DE] iter   22 | best: -5.750251e+00 | no_improve:   0 | div: 0.1797 | dt: 102.633s
+[DE] iter   23 | best: -5.980157e+00 | no_improve:   0 | div: 0.1733 | dt: 112.690s
+[DE] iter   24 | best: -5.980157e+00 | no_improve:   1 | div: 0.1732 | dt: 107.999s
+[DE] iter   25 | best: -5.980157e+00 | no_improve:   2 | div: 0.1724 | dt: 111.752s
+[DE] iter   26 | best: -5.980157e+00 | no_improve:   3 | div: 0.1698 | dt: 118.150s
+[DE] iter   27 | best: -5.980157e+00 | no_improve:   4 | div: 0.1670 | dt: 108.076s
+[DE] iter   28 | best: -5.980157e+00 | no_improve:   5 | div: 0.1684 | dt: 109.827s
+[DE] iter   29 | best: -5.980157e+00 | no_improve:   6 | div: 0.1614 | dt: 115.724s
+[DE] iter   30 | best: -6.469109e+00 | no_improve:   0 | div: 0.1512 | dt: 98.882s
+[DE] iter   31 | best: -6.469109e+00 | no_improve:   1 | div: 0.1508 | dt: 115.131s
+[DE] iter   32 | best: -6.831521e+00 | no_improve:   0 | div: 0.1495 | dt: 114.342s
+[DE] iter   33 | best: -6.831521e+00 | no_improve:   1 | div: 0.1473 | dt: 108.570s
+[DE] iter   34 | best: -6.831521e+00 | no_improve:   2 | div: 0.1393 | dt: 119.207s
+[DE] iter   35 | best: -6.831521e+00 | no_improve:   3 | div: 0.1395 | dt: 107.131s
+[DE] iter   36 | best: -6.831521e+00 | no_improve:   4 | div: 0.1402 | dt: 122.404s
+[DE] iter   37 | best: -6.865956e+00 | no_improve:   0 | div: 0.1319 | dt: 117.494s
+[DE] iter   38 | best: -6.865956e+00 | no_improve:   1 | div: 0.1271 | dt: 106.133s
+[DE] iter   39 | best: -6.865956e+00 | no_improve:   2 | div: 0.1242 | dt: 111.613s
+[DE] iter   40 | best: -6.865956e+00 | no_improve:   3 | div: 0.1217 | dt: 116.959s
+[DE] iter   41 | best: -6.865956e+00 | no_improve:   4 | div: 0.1164 | dt: 105.251s
+[DE] iter   42 | best: -6.865956e+00 | no_improve:   5 | div: 0.1232 | dt: 113.018s
+[DE] iter   43 | best: -6.950243e+00 | no_improve:   0 | div: 0.1227 | dt: 112.650s
+[DE] iter   44 | best: -6.950243e+00 | no_improve:   1 | div: 0.1215 | dt: 122.862s
+[DE] iter   45 | best: -6.950243e+00 | no_improve:   2 | div: 0.1244 | dt: 123.602s
+[DE] iter   46 | best: -6.950243e+00 | no_improve:   3 | div: 0.1210 | dt: 111.667s
+[DE] iter   47 | best: -6.950243e+00 | no_improve:   4 | div: 0.1175 | dt: 112.371s
+[DE] iter   48 | best: -6.950243e+00 | no_improve:   5 | div: 0.1152 | dt: 119.555s
+[DE] iter   49 | best: -6.950243e+00 | no_improve:   6 | div: 0.1095 | dt: 116.719s
+[DE] iter   50 | best: -6.950243e+00 | no_improve:   7 | div: 0.1098 | dt: 121.822s
+
+============================================================
+  Stop reason:  max_iterations
+  Converged:    False
+  Iterations:   50
+  Best metric:  -6.950243e+00
+  Diversity:    0.1098
+  Best parameters:
+    Cc: 1.380395e+01
+    Ibias: 1.663541e-05
+    L1: 3.969876e+00
+    L3: 1.251704e+00
+    L5: 3.822595e+00
+    L6: 3.546170e-01
+    L7: 5.064010e+00
+    Lbn: 1.955058e+00
+    Lbp: 4.580222e+00
+    Rc: 1.804825e+04
+    W1: 1.514998e+01
+    W3: 3.605774e+01
+    W5: 8.194895e+00
+    W6: 1.611563e+01
+    W7: 2.441385e+01
+    Wbn: 6.339248e+00
+    Wbp: 6.795410e+00
+============================================================
+
+  DC phase = -0.2 deg, non-inverting amp
+  WARNING: no 0dB crossing found in AC data
+
+======================================================================
+  EVALUATION REPORT — SKY130 Operational Amplifier
+======================================================================
+
+  Score: 1.00 / 1.00  |  Time: 5549.7s
+  DE converged: False  |  Iterations: 50  |  Diversity: 0.1098
+  Stop reason: max_iterations
+
+  Specs met: 6/6
+
+  Spec                            Target     Measured     Unit   Status  Score
+  -------------------------------------------------------------------------
+  dc_gain_db                         >60       82.256       dB     PASS  1.00
+  gbw_hz                            >5e6     1.07e+07       Hz     PASS  1.00
+  phase_margin_deg                   >60      117.688      deg     PASS  1.00
+  power_uw                         <1000      131.954       uW     PASS  1.00
+  output_swing_v                    >1.2        1.783        V     PASS  1.00
+  cmrr_db                            >60       75.249       dB     PASS  1.00
+
+  Best Parameters:
+    Cc                   = 1.3804e+01
+    Ibias                = 1.6635e-05
+    L1                   = 3.9699e+00
+    L3                   = 1.2517e+00
+    L5                   = 3.8226e+00
+    L6                   = 3.5462e-01
+    L7                   = 5.0640e+00
+    Lbn                  = 1.9551e+00
+    Lbp                  = 4.5802e+00
+    Rc                   = 1.8048e+04
+    W1                   = 1.5150e+01
+    W3                   = 3.6058e+01
+    W5                   = 8.1949e+00
+    W6                   = 1.6116e+01
+    W7                   = 2.4414e+01
+    Wbn                  = 6.3392e+00
+    Wbp                  = 6.7954e+00
+
+======================================================================
+
+
+Saved: best_parameters.csv, measurements.json, plots/
+Score: 1.00 | Specs met: 6/6 | Converged: False
