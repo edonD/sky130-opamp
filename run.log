@@ -1,133 +1,139 @@
 Loading design...
 Design: SKY130 Operational Amplifier
-Parameters: 19
+Parameters: 17
 Specs: 6
 
-DE: 19 params, pop=38, patience=10, workers=8
-[DE] iter    1 | best: 2.222604e+01 | no_improve:   0 | div: 0.2890 | dt: 137.730s
-[DE] iter    2 | best: 2.222604e+01 | no_improve:   1 | div: 0.2771 | dt: 139.670s
-[DE] iter    3 | best: 2.222604e+01 | no_improve:   2 | div: 0.2629 | dt: 139.397s
-[DE] iter    4 | best: 2.222604e+01 | no_improve:   3 | div: 0.2595 | dt: 146.417s
-[DE] iter    5 | best: 6.949505e+00 | no_improve:   0 | div: 0.2493 | dt: 140.107s
-[DE] iter    6 | best: 4.901704e+00 | no_improve:   0 | div: 0.2479 | dt: 139.995s
-[DE] iter    7 | best: 4.901704e+00 | no_improve:   1 | div: 0.2491 | dt: 139.215s
-[DE] iter    8 | best: -2.861107e+00 | no_improve:   0 | div: 0.2420 | dt: 136.858s
-[DE] iter    9 | best: -2.861107e+00 | no_improve:   1 | div: 0.2380 | dt: 141.971s
-[DE] iter   10 | best: -2.861107e+00 | no_improve:   2 | div: 0.2343 | dt: 136.820s
-[DE] iter   11 | best: -2.861107e+00 | no_improve:   3 | div: 0.2281 | dt: 140.997s
-[DE] iter   12 | best: -2.861107e+00 | no_improve:   4 | div: 0.2281 | dt: 140.039s
-[DE] iter   13 | best: -2.861107e+00 | no_improve:   5 | div: 0.2281 | dt: 143.579s
-[DE] iter   14 | best: -2.861107e+00 | no_improve:   6 | div: 0.2317 | dt: 144.988s
-[DE] iter   15 | best: -2.861107e+00 | no_improve:   7 | div: 0.2304 | dt: 136.977s
-[DE] iter   16 | best: -2.861107e+00 | no_improve:   8 | div: 0.2293 | dt: 145.652s
-[DE] iter   17 | best: -2.861107e+00 | no_improve:   9 | div: 0.2293 | dt: 142.457s
-[DE] iter   18 | best: -2.861107e+00 | no_improve:  10 | div: 0.2260 | dt: 139.639s
-[DE] iter   19 | best: -3.221845e+00 | no_improve:   0 | div: 0.2248 | dt: 145.299s
-[DE] iter   20 | best: -3.221845e+00 | no_improve:   1 | div: 0.2247 | dt: 146.985s
-[DE] iter   21 | best: -3.221845e+00 | no_improve:   2 | div: 0.2214 | dt: 145.707s
-[DE] iter   22 | best: -3.221845e+00 | no_improve:   3 | div: 0.2191 | dt: 135.189s
-[DE] iter   23 | best: -3.221845e+00 | no_improve:   4 | div: 0.2170 | dt: 140.049s
-[DE] iter   24 | best: -3.221845e+00 | no_improve:   5 | div: 0.2181 | dt: 144.789s
-[DE] iter   25 | best: -3.221845e+00 | no_improve:   6 | div: 0.2170 | dt: 145.145s
-[DE] iter   26 | best: -3.221845e+00 | no_improve:   7 | div: 0.2138 | dt: 145.772s
-[DE] iter   27 | best: -3.221845e+00 | no_improve:   8 | div: 0.2082 | dt: 144.171s
-[DE] iter   28 | best: -3.221845e+00 | no_improve:   9 | div: 0.2126 | dt: 144.321s
-[DE] iter   29 | best: -3.221845e+00 | no_improve:  10 | div: 0.2109 | dt: 146.543s
-[DE] iter   30 | best: -3.221845e+00 | no_improve:  11 | div: 0.2067 | dt: 141.527s
-[DE] iter   31 | best: -3.221845e+00 | no_improve:  12 | div: 0.2062 | dt: 143.593s
-[DE] iter   32 | best: -3.221845e+00 | no_improve:  13 | div: 0.2062 | dt: 141.761s
-[DE] iter   33 | best: -3.221845e+00 | no_improve:  14 | div: 0.2074 | dt: 140.040s
-[DE] iter   34 | best: -3.221845e+00 | no_improve:  15 | div: 0.2067 | dt: 144.989s
-[DE] iter   35 | best: -3.221845e+00 | no_improve:  16 | div: 0.2027 | dt: 145.999s
-[DE] iter   36 | best: -3.221845e+00 | no_improve:  17 | div: 0.2012 | dt: 147.253s
-[DE] iter   37 | best: -3.221845e+00 | no_improve:  18 | div: 0.2005 | dt: 139.800s
-[DE] iter   38 | best: -3.221845e+00 | no_improve:  19 | div: 0.2036 | dt: 144.180s
-[DE] iter   39 | best: -3.221845e+00 | no_improve:  20 | div: 0.2016 | dt: 146.538s
-[DE] iter   40 | best: -3.221845e+00 | no_improve:  21 | div: 0.2010 | dt: 150.236s
-[DE] iter   41 | best: -3.221845e+00 | no_improve:  22 | div: 0.2010 | dt: 139.028s
-[DE] iter   42 | best: -3.221845e+00 | no_improve:  23 | div: 0.2014 | dt: 141.308s
-[DE] iter   43 | best: -3.358144e+00 | no_improve:   0 | div: 0.1994 | dt: 148.498s
-[DE] iter   44 | best: -3.358144e+00 | no_improve:   1 | div: 0.1978 | dt: 147.648s
-[DE] iter   45 | best: -3.358144e+00 | no_improve:   2 | div: 0.1967 | dt: 140.438s
-[DE] iter   46 | best: -3.358144e+00 | no_improve:   3 | div: 0.1944 | dt: 143.776s
-[DE] iter   47 | best: -3.358144e+00 | no_improve:   4 | div: 0.1944 | dt: 148.840s
-[DE] iter   48 | best: -3.358144e+00 | no_improve:   5 | div: 0.1919 | dt: 142.401s
-[DE] iter   49 | best: -3.525424e+00 | no_improve:   0 | div: 0.1918 | dt: 143.545s
-[DE] iter   50 | best: -3.525424e+00 | no_improve:   1 | div: 0.1918 | dt: 146.779s
+DE: 17 params, pop=34, patience=10, workers=8
+  Seeding DE with previous best parameters
+[DE] iter    1 | best: 1.057593e+02 | no_improve:   0 | div: 0.3083 | dt: 107.519s
+[DE] iter    2 | best: 1.057593e+02 | no_improve:   1 | div: 0.2947 | dt: 107.811s
+[DE] iter    3 | best: -1.547031e+00 | no_improve:   0 | div: 0.2752 | dt: 112.922s
+[DE] iter    4 | best: -2.004707e+00 | no_improve:   0 | div: 0.2553 | dt: 112.760s
+[DE] iter    5 | best: -2.004707e+00 | no_improve:   1 | div: 0.2478 | dt: 113.716s
+[DE] iter    6 | best: -2.004707e+00 | no_improve:   2 | div: 0.2367 | dt: 116.410s
+[DE] iter    7 | best: -3.185642e+00 | no_improve:   0 | div: 0.2223 | dt: 122.900s
+[DE] iter    8 | best: -3.185642e+00 | no_improve:   1 | div: 0.2108 | dt: 117.961s
+[DE] iter    9 | best: -6.249898e+00 | no_improve:   0 | div: 0.2046 | dt: 113.860s
+[DE] iter   10 | best: -6.249898e+00 | no_improve:   1 | div: 0.1958 | dt: 113.310s
+[DE] iter   11 | best: -6.249898e+00 | no_improve:   2 | div: 0.1914 | dt: 118.637s
+[DE] iter   12 | best: -6.249898e+00 | no_improve:   3 | div: 0.1940 | dt: 122.018s
+[DE] iter   13 | best: -6.249898e+00 | no_improve:   4 | div: 0.1884 | dt: 108.495s
+[DE] iter   14 | best: -6.249898e+00 | no_improve:   5 | div: 0.1867 | dt: 122.368s
+[DE] iter   15 | best: -6.249898e+00 | no_improve:   6 | div: 0.1829 | dt: 112.297s
+[DE] iter   16 | best: -6.249898e+00 | no_improve:   7 | div: 0.1823 | dt: 116.213s
+[DE] iter   17 | best: -6.249898e+00 | no_improve:   8 | div: 0.1788 | dt: 118.952s
+[DE] iter   18 | best: -6.249898e+00 | no_improve:   9 | div: 0.1821 | dt: 114.713s
+[DE] iter   19 | best: -6.249898e+00 | no_improve:  10 | div: 0.1723 | dt: 108.286s
+[DE] iter   20 | best: -6.249898e+00 | no_improve:  11 | div: 0.1748 | dt: 111.055s
+[DE] iter   21 | best: -6.249898e+00 | no_improve:  12 | div: 0.1752 | dt: 109.454s
+[DE] iter   22 | best: -6.249898e+00 | no_improve:  13 | div: 0.1735 | dt: 111.684s
+[DE] iter   23 | best: -6.249898e+00 | no_improve:  14 | div: 0.1697 | dt: 119.292s
+[DE] iter   24 | best: -6.249898e+00 | no_improve:  15 | div: 0.1690 | dt: 118.422s
+[DE] iter   25 | best: -6.249898e+00 | no_improve:  16 | div: 0.1687 | dt: 119.417s
+[DE] iter   26 | best: -6.249898e+00 | no_improve:  17 | div: 0.1611 | dt: 109.516s
+[DE] iter   27 | best: -6.249898e+00 | no_improve:  18 | div: 0.1516 | dt: 115.268s
+[DE] iter   28 | best: -6.249898e+00 | no_improve:  19 | div: 0.1493 | dt: 122.106s
+[DE] iter   29 | best: -6.249898e+00 | no_improve:  20 | div: 0.1493 | dt: 122.785s
+[DE] iter   30 | best: -6.249898e+00 | no_improve:  21 | div: 0.1513 | dt: 130.168s
+[DE] iter   31 | best: -6.249898e+00 | no_improve:  22 | div: 0.1480 | dt: 119.424s
+[DE] iter   32 | best: -6.249898e+00 | no_improve:  23 | div: 0.1490 | dt: 124.569s
+[DE] iter   33 | best: -6.249898e+00 | no_improve:  24 | div: 0.1493 | dt: 106.882s
+[DE] iter   34 | best: -6.272798e+00 | no_improve:   0 | div: 0.1492 | dt: 120.094s
+[DE] iter   35 | best: -6.272798e+00 | no_improve:   1 | div: 0.1483 | dt: 119.969s
+[DE] iter   36 | best: -6.272798e+00 | no_improve:   2 | div: 0.1479 | dt: 111.556s
+[DE] iter   37 | best: -6.272798e+00 | no_improve:   3 | div: 0.1454 | dt: 116.715s
+[DE] iter   38 | best: -6.272798e+00 | no_improve:   4 | div: 0.1427 | dt: 116.275s
+[DE] iter   39 | best: -6.524683e+00 | no_improve:   0 | div: 0.1397 | dt: 112.784s
+[DE] iter   40 | best: -6.524683e+00 | no_improve:   1 | div: 0.1394 | dt: 115.850s
+[DE] iter   41 | best: -6.524683e+00 | no_improve:   2 | div: 0.1411 | dt: 117.325s
+[DE] iter   42 | best: -6.524683e+00 | no_improve:   3 | div: 0.1362 | dt: 118.895s
+[DE] iter   43 | best: -6.524683e+00 | no_improve:   4 | div: 0.1317 | dt: 126.380s
+[DE] iter   44 | best: -6.617513e+00 | no_improve:   0 | div: 0.1254 | dt: 116.283s
+[DE] iter   45 | best: -6.617513e+00 | no_improve:   1 | div: 0.1234 | dt: 111.334s
+[DE] iter   46 | best: -6.617513e+00 | no_improve:   2 | div: 0.1183 | dt: 119.506s
+[DE] iter   47 | best: -6.617513e+00 | no_improve:   3 | div: 0.1182 | dt: 114.139s
+[DE] iter   48 | best: -6.617513e+00 | no_improve:   4 | div: 0.1156 | dt: 116.297s
+[DE] iter   49 | best: -6.620427e+00 | no_improve:   0 | div: 0.1135 | dt: 121.983s
+[DE] iter   50 | best: -6.705743e+00 | no_improve:   0 | div: 0.1138 | dt: 109.948s
 
 ============================================================
   Stop reason:  max_iterations
   Converged:    False
   Iterations:   50
-  Best metric:  -3.525424e+00
-  Diversity:    0.1918
+  Best metric:  -6.705743e+00
+  Diversity:    0.1138
   Best parameters:
-    Cc: 1.487055e+00
-    Ibias: 8.437352e-05
-    L1: 9.877245e-01
-    L3: 1.619013e+00
-    L5: 9.581182e-01
-    L6: 6.271817e-01
-    L7: 2.589780e-01
-    Lbn: 1.446647e+00
-    Lbp: 1.453335e+00
-    Lc: 1.176602e+00
-    Rc: 1.300887e+03
-    W1: 8.295102e+00
-    W3: 6.650923e+00
-    W5: 3.852296e+00
-    W6: 3.186173e+01
-    W7: 1.746752e+01
-    Wbn: 2.447826e+01
-    Wbp: 4.450252e+00
-    Wc: 4.314322e+01
+    Cc: 2.030347e+01
+    Ibias: 3.125214e-05
+    L1: 2.706184e+00
+    L3: 1.119036e+00
+    L5: 1.982336e+00
+    L6: 3.163577e-01
+    L7: 4.094459e+00
+    Lbn: 4.553130e+00
+    Lbp: 9.842627e-01
+    Rc: 2.149531e+04
+    W1: 1.336549e+01
+    W3: 5.678238e+01
+    W5: 1.272945e+01
+    W6: 1.915073e+01
+    W7: 4.301874e+01
+    Wbn: 6.779632e+01
+    Wbp: 1.444856e+01
 ============================================================
 
-  DC phase = -0.7 deg, non-inverting amp
+  DC phase = -0.5 deg, non-inverting amp
   WARNING: no 0dB crossing found in AC data
 
 ======================================================================
   EVALUATION REPORT — SKY130 Operational Amplifier
 ======================================================================
 
-  Score: 1.00 / 1.00  |  Time: 7145.2s
-  DE converged: False  |  Iterations: 50  |  Diversity: 0.1918
+  Score: 1.00 / 1.00  |  Time: 5807.1s
+  DE converged: False  |  Iterations: 50  |  Diversity: 0.1138
   Stop reason: max_iterations
 
   Specs met: 6/6
 
   Spec                            Target     Measured     Unit   Status  Score
   -------------------------------------------------------------------------
-  dc_gain_db                         >60       64.742       dB     PASS  1.00
-  gbw_hz                            >5e6     1.07e+07       Hz     PASS  1.00
-  phase_margin_deg                   >60       61.689      deg     PASS  1.00
-  power_uw                         <1000      619.680       uW     PASS  1.00
-  output_swing_v                    >1.2    [DE] iter   71 | best: 1.143592e+03 | no_improve:  26 | div: 0.1739 | dt: 260.142s
-.330       dB     PASS  1.00
+  dc_gain_db                         >60       78.910       dB     PASS  1.00
+  gbw_hz                            >5e6     1.12e+07       Hz     PASS  1.00
+  phase_margin_deg                   >60      110.510      deg     PASS  1.00
+  power_uw                         <1000      169.987       uW     PASS  1.00
+  output_swing_v                    >1.2        1.791        V     PASS  1.00
+  cmrr_db                            >60       84.508       dB     PASS  1.00
 
   Best Parameters:
-    Cc                   = 1.4871e+00
-    Ibias                = 8.4374e-05
-    L1                   = 9.8772e-01
-    L3                   = 1.6190e+00
-    L5                   = 9.5812e-01
-    L6                   = 6.2718e-01
-    L7                   = 2.5898e-01
-    Lbn                  = 1.4466e+00
-    Lbp                  = 1.4533e+00
-    Lc                   = 1.1766e+00
-    Rc                   = 1.3009e+03
-    W1                   = 8.2951e+00
-    W3                   = 6.6509e+00
-    W5                   = 3.8523e+00
-    W6                   = 3.1862e+01
-    W7                   = 1.7468e+01
-    Wbn                  = 2.4478e+01
-    Wbp                  = 4.4503e+00
-    Wc                   = 4.3143e+01
+    Cc                   = 2.0303e+01
+    Ibias                = 3.1252e-05
+    L1                   = 2.7062e+00
+    L3                   = 1.1190e+00
+    L5                   = 1.9823e+00
+    L6                   = 3.1636e-01
+    L7                   = 4.0945e+00
+    Lbn                  = 4.5531e+00
+    Lbp                  = 9.8426e-01
+    Rc                   = 2.1495e+04
+    W1                   = 1.3365e+01
+    W3                   = 5.6782e+01
+    W5                   = 1.2729e+01
+    W6                   = 1.9151e+01
+    W7                   = 4.3019e+01
+    Wbn                  = 6.7796e+01
+    Wbp                  = 1.4449e+01
 
 ======================================================================
 
 
 Saved: best_parameters.csv, measurements.json, plots/
 Score: 1.00 | Specs met: 6/6 | Converged: False
+e:   4 | div: 0.1676 | dt: 345.054s
+[DE] iter   83 | best: 1.122163e+03 | no_improve:   5 | div: 0.1688 | dt: 339.976s
+[DE] iter   84 | best: 1.122163e+03 | no_improve:   6 | div: 0.1686 | dt: 344.256s
+[DE] iter   85 | best: 1.122163e+03 | no_improve:   7 | div: 0.1673 | dt: 345.942s
+[DE] iter   86 | best: 1.122163e+03 | no_improve:   8 | div: 0.1646 | dt: 328.152s
+[DE] iter   87 | best: 1.122163e+03 | no_improve:   9 | div: 0.1655 | dt: 344.353s
+[DE] iter   88 | best: 1.122163e+03 | no_improve:  10 | div: 0.1654 | dt: 330.519s
+[DE] iter   89 | best: 1.122163e+03 | no_improve:  11 | div: 0.1635 | dt: 336.483s
+[DE] iter   90 | best: 1.122163e+03 | no_improve:  12 | div: 0.1623 | dt: 196.581s

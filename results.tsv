@@ -5,3 +5,4 @@ step	commit	score	topology	specs_met	notes
 2	5557f11	1.00	two-stage-miller-nmos-input	6/6	All specs met: gain=82dB GBW=23MHz PM=97deg power=83uW swing=1.79V CMRR=82dB
 4	pending	1.00	two-stage-miller-nmos-input	6/6	gain=83.4dB GBW=13.5MHz PM=120deg power=196uW swing=1.79V CMRR=81.9dB — fixed PM in DE cost, seeded population
 5	2ab2e13	1.00	two-stage-miller-cascode-pmos-load	6/6	gain=64.7dB GBW=10.7MHz PM=61.7deg power=620uW swing=1.71V CMRR=66.3dB — cascode PMOS load, tighter margins due to headroom
+6	64fc9d9	1.00	two-stage-miller-nmos-input	6/6	gain=78.9dB GBW=11.2MHz PM=110.5deg power=170uW swing=1.79V CMRR=84.5dB — reverted to simple topology, wider ranges, 50-iter DE
