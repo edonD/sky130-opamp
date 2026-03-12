@@ -1,0 +1,21 @@
+Loading design...
+Design: SKY130 Operational Amplifier
+Parameters: 17
+Specs: 6
+
+DE: 17 params, pop=34, patience=10, workers=8
+  Seeding DE with previous best parameters
+[DE] iter    1 | best: 7.392283e+01 | no_improve:   0 | div: 0.3051 | dt: 99.887s
+[DE] iter    2 | best: -1.715160e+00 | no_improve:   0 | div: 0.2892 | dt: 99.946s
+[DE] iter    3 | best: -1.715160e+00 | no_improve:   1 | div: 0.2622 | dt: 108.171s
+[DE] iter    4 | best: -1.715160e+00 | no_improve:   2 | div: 0.2510 | dt: 109.345s
+[DE] iter    5 | best: -1.715160e+00 | no_improve:   3 | div: 0.2388 | dt: 112.043s
+[DE] iter    6 | best: -1.715160e+00 | no_improve:   4 | div: 0.2256 | dt: 113.734s
+[DE] iter    7 | best: -1.715160e+00 | no_improve:   5 | div: 0.2074 | dt: 119.708s
+[DE] iter    8 | best: -1.715160e+00 | no_improve:   6 | div: 0.2076 | dt: 105.931s
+[DE] iter    9 | best: -2.191753e+00 | no_improve:   0 | div: 0.2020 | dt: 114.963s
+[DE] iter   10 | best: -2.191753e+00 | no_improve:   1 | div: 0.1992 | dt: 111.518s
+[DE] iter   11 | best: -2.191753e+00 | no_improve:   2 | div: 0.1933 | dt: 114.362s
+[DE] iter   12 | best: -2.191753e+00 | no_improve:   3 | div: 0.1935 | dt: 115.373s
+[DE] iter   13 | best: -2.673628e+00 | no_improve:   0 | div: 0.1946 | dt: 63.714s
+[DE] iter   14 | best: -2.673628e+00 | no_improve:   1 | div: 0.1893 | dt: 58.900s
