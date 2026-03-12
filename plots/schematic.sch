@@ -5,13 +5,12 @@ V {}
 S {}
 E {}
 T {SKY130 Two-Stage Miller OTA — NMOS input pair} 50 -700 0 0 0.6 0.6 {}
-T {NMOS diff pair + PMOS mirror load + PMOS CS second stage} 50 -660 0 0 0.4 0.4 {}
-T {=== BIAS GENERATION ===} 50 -630 0 0 0.4 0.4 {}
-T {PMOS bias: PMOS diode loaded by NMOS mirror} 50 -600 0 0 0.4 0.4 {}
-T {=== FIRST STAGE ===} 50 -570 0 0 0.4 0.4 {}
-T {=== SECOND STAGE ===} 50 -540 0 0 0.4 0.4 {}
-T {=== Miller compensation ===} 50 -510 0 0 0.4 0.4 {}
-T {=== Load ===} 50 -480 0 0 0.4 0.4 {}
+T {=== BIAS GENERATION ===} 50 -660 0 0 0.4 0.4 {}
+T {PMOS bias: PMOS diode loaded by NMOS mirror} 50 -630 0 0 0.4 0.4 {}
+T {=== FIRST STAGE ===} 50 -600 0 0 0.4 0.4 {}
+T {=== SECOND STAGE ===} 50 -570 0 0 0.4 0.4 {}
+T {=== Miller compensation ===} 50 -540 0 0 0.4 0.4 {}
+T {=== Load ===} 50 -510 0 0 0.4 0.4 {}
 C {devices/vsource.sym} 80 -280 0 0 {name=Vdd
 value=1.8}
 C {devices/vsource.sym} 50 -70 0 0 {name=Vss

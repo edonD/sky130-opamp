@@ -107,8 +107,13 @@ def format_netlist(template: str, param_values: Dict[str, float]) -> str:
 
 def run_simulation(template: str, param_values: Dict[str, float],
                    idx: int, tmp_dir: str) -> Dict:
+    # Inject per-simulation ac_file path so wrdata goes to unique file
+    ac_file_path = os.path.join(tmp_dir, f"ac_{idx}")
+    augmented_params = dict(param_values)
+    augmented_params["ac_file"] = ac_file_path
+
     try:
-        netlist = format_netlist(template, param_values)
+        netlist = format_netlist(template, augmented_params)
     except Exception as e:
         return {"idx": idx, "error": f"format error: {e}", "measurements": {}}
 
@@ -138,6 +143,18 @@ def run_simulation(template: str, param_values: Dict[str, float],
                 "output_tail": output[-500:]}
 
     measurements = parse_ngspice_output(output)
+
+    # Compute PM from wrdata output (proper unwrapped phase)
+    pm = compute_phase_margin_from_ac_data(ac_file_path)
+    if pm is not None:
+        measurements["RESULT_PHASE_MARGIN_DEG"] = pm
+
+    # Clean up ac data file
+    try:
+        os.unlink(ac_file_path)
+    except OSError:
+        pass
+
     return {"idx": idx, "error": None, "measurements": measurements}
 
 
@@ -167,22 +184,23 @@ def parse_ngspice_output(output: str) -> Dict[str, float]:
 # Phase margin from ac_data (proper unwrapped computation)
 # ---------------------------------------------------------------------------
 
-def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional[float]:
+def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data",
+                                      verbose: bool = False) -> Optional[float]:
     """Read ngspice wrdata output, compute PM with np.unwrap.
 
     Handles both non-inverting (phase starts ~0°) and inverting (phase starts ~180°)
     amplifiers. For non-inverting: PM = 180 + phase_at_UGF.
     For inverting: PM = phase_at_UGF (distance from 0° instability point).
     """
-    data_file = os.path.join(PROJECT_DIR, ac_data_path)
+    data_file = ac_data_path if os.path.isabs(ac_data_path) else os.path.join(PROJECT_DIR, ac_data_path)
     if not os.path.exists(data_file):
-        print(f"  WARNING: {data_file} not found, cannot compute unwrapped PM")
+        if verbose:
+            print(f"  WARNING: {data_file} not found, cannot compute unwrapped PM")
         return None
 
     try:
         raw = np.loadtxt(data_file)
         if raw.ndim != 2 or raw.shape[1] < 3:
-            print(f"  WARNING: ac_data has unexpected shape {raw.shape}")
             return None
 
         freq = raw[:, 0]
@@ -196,7 +214,6 @@ def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional
         imag_part = imag_part[mask]
 
         if len(freq) < 10:
-            print(f"  WARNING: too few AC data points ({len(freq)})")
             return None
 
         # Compute gain in dB and phase in degrees (unwrapped)
@@ -209,7 +226,8 @@ def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional
         # Detect if amplifier is inverting (phase starts near ±180°)
         dc_phase = phase_deg[0]
         is_inverting = abs(abs(dc_phase) - 180.0) < 30.0
-        print(f"  DC phase = {dc_phase:.1f} deg, {'inverting' if is_inverting else 'non-inverting'} amp")
+        if verbose:
+            print(f"  DC phase = {dc_phase:.1f} deg, {'inverting' if is_inverting else 'non-inverting'} amp")
 
         # Find unity gain crossing (0 dB)
         # Look for where gain_db crosses 0 from above
@@ -227,14 +245,17 @@ def compute_phase_margin_from_ac_data(ac_data_path: str = "ac_data") -> Optional
                     # Non-inverting amp: instability at -180°, PM = 180 + phase
                     pm = 180.0 + phase_at_ugf
 
-                print(f"  UGF = {freq_ugf:.2e} Hz, phase at UGF = {phase_at_ugf:.1f} deg, PM = {pm:.1f} deg")
+                if verbose:
+                    print(f"  UGF = {freq_ugf:.2e} Hz, phase at UGF = {phase_at_ugf:.1f} deg, PM = {pm:.1f} deg")
                 return pm
 
-        print("  WARNING: no 0dB crossing found in AC data")
+        if verbose:
+            print("  WARNING: no 0dB crossing found in AC data")
         return None
 
     except Exception as e:
-        print(f"  WARNING: failed to compute PM from ac_data: {e}")
+        if verbose:
+            print(f"  WARNING: failed to compute PM from ac_data: {e}")
         return None
 
 
@@ -369,6 +390,30 @@ def eval_batch_local(template: str, param_dicts: List[Dict[str, float]],
 # DE runner
 # ---------------------------------------------------------------------------
 
+def _load_seed_parameters(params: List[Dict]) -> Optional[Dict[str, float]]:
+    """Load best_parameters.csv as a seed if it exists and matches current params."""
+    seed_file = os.path.join(PROJECT_DIR, "best_parameters.csv")
+    if not os.path.exists(seed_file):
+        return None
+    try:
+        seed = {}
+        with open(seed_file) as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                seed[row["name"]] = float(row["value"])
+        param_names = {p["name"] for p in params}
+        if not param_names.issubset(set(seed.keys())):
+            return None
+        # Check seed is within bounds
+        for p in params:
+            val = seed.get(p["name"])
+            if val is None or val < p["min"] * 0.9 or val > p["max"] * 1.1:
+                return None
+        return {p["name"]: seed[p["name"]] for p in params}
+    except Exception:
+        return None
+
+
 def run_de(template: str, params: List[Dict], specs: Dict,
            n_workers: int = 0, server_url: str = "",
            quick: bool = False) -> Dict:
@@ -421,6 +466,28 @@ def run_de(template: str, params: List[Dict], specs: Dict,
         patience=patience,
         F1=0.7, F2=0.3, F3=0.1, CR=0.9,
     )
+
+    # Seed population with known best parameters if available
+    seed = _load_seed_parameters(params)
+    if seed is not None:
+        print(f"  Seeding DE with previous best parameters")
+        from de.engine import _scale_array, _normalize
+        seed_values = np.array([seed[p["name"]] for p in params])
+        seed_scaled = _scale_array(seed_values, de_params["transforms"])
+        seed_normed = _normalize(seed_scaled, de_params["bounds_min"],
+                                  de_params["bounds_range"])
+        seed_normed = np.clip(seed_normed, 0.0, 1.0)
+
+        # Monkey-patch _init_population to inject seed
+        original_init = de._init_population
+        def seeded_init():
+            original_init()
+            de.trials_normed[0] = seed_normed
+            n_seed = min(pop_size // 4, 20)
+            for i in range(1, n_seed + 1):
+                perturbation = np.random.normal(0, 0.05, n_params)
+                de.trials_normed[i] = np.clip(seed_normed + perturbation, 0.0, 1.0)
+        de._init_population = seeded_init
 
     return de.run()
 
@@ -642,7 +709,7 @@ def main():
     measurements = final["measurements"] if not final.get("error") else {}
 
     # Compute proper phase margin from ac_data using np.unwrap
-    pm_unwrapped = compute_phase_margin_from_ac_data()
+    pm_unwrapped = compute_phase_margin_from_ac_data(verbose=True)
     if pm_unwrapped is not None:
         print(f"  PM from np.unwrap: {pm_unwrapped:.2f} deg")
         measurements["RESULT_PHASE_MARGIN_DEG"] = pm_unwrapped
@@ -663,8 +730,22 @@ def main():
         for name, val in sorted(best_params.items()):
             w.writerow([name, val])
 
+    # Convert numpy types for JSON serialization
+    def _jsonable(obj):
+        if isinstance(obj, dict):
+            return {k: _jsonable(v) for k, v in obj.items()}
+        if isinstance(obj, (list, tuple)):
+            return [_jsonable(v) for v in obj]
+        if isinstance(obj, (np.bool_, bool)):
+            return bool(obj)
+        if isinstance(obj, (np.integer, int)):
+            return int(obj)
+        if isinstance(obj, (np.floating, float)):
+            return float(obj)
+        return obj
+
     with open("measurements.json", "w") as f:
-        json.dump({
+        json.dump(_jsonable({
             "measurements": measurements,
             "score": score,
             "details": details,
@@ -676,7 +757,7 @@ def main():
                 "stop_reason": str(de_result.get("stop_reason", "")),
                 "best_metric": float(de_result.get("best_metric", 0)),
             },
-        }, f, indent=2)
+        }), f, indent=2)
 
     # Generate progress plot
     generate_progress_plot(RESULTS_FILE, PLOTS_DIR)

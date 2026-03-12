@@ -729,11 +729,10 @@ text {font-family: Sans-Serif;}
 <circle class="l1" cx="870.833" cy="496.213" r="2.49836"/>
 <circle class="l1" cx="870.833" cy="496.213" r="2.49836"/>
 <text fill="#cccccc"  xml:space="preserve" font-size="21.0672" transform="translate(26.7935, 137.212)" >SKY130 Two-Stage Miller OTA — NMOS input pair</text>
-<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 157.845)" >NMOS diff pair + PMOS mirror load + PMOS CS second stage</text>
-<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 178.102)" >=== BIAS GENERATION ===</text>
-<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 198.359)" >PMOS bias: PMOS diode loaded by NMOS mirror</text>
-<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 218.616)" >=== FIRST STAGE ===</text>
-<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 238.873)" >=== SECOND STAGE ===</text>
-<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 259.13)" >=== Miller compensation ===</text>
-<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 279.387)" >=== Load ===</text>
+<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 157.845)" >=== BIAS GENERATION ===</text>
+<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 178.102)" >PMOS bias: PMOS diode loaded by NMOS mirror</text>
+<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 198.359)" >=== FIRST STAGE ===</text>
+<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 218.616)" >=== SECOND STAGE ===</text>
+<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 238.873)" >=== Miller compensation ===</text>
+<text fill="#cccccc"  xml:space="preserve" font-size="14.0448" transform="translate(26.7935, 259.13)" >=== Load ===</text>
 </svg>

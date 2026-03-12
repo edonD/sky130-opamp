@@ -1,51 +1,51 @@
 {
   "measurements": {
-    "RESULT_DC_GAIN_DB": 83.711,
-    "RESULT_GBW_HZ": 10100000.0,
-    "RESULT_PHASE_MARGIN_DEG": 110.685,
-    "RESULT_POWER_UW": 247.477,
-    "RESULT_OUTPUT_SWING_V": 1.782,
-    "RESULT_CMRR_DB": 73.385
+    "RESULT_DC_GAIN_DB": 83.404,
+    "RESULT_GBW_HZ": 13500000.0,
+    "RESULT_PHASE_MARGIN_DEG": 120.071,
+    "RESULT_POWER_UW": 196.176,
+    "RESULT_OUTPUT_SWING_V": 1.786,
+    "RESULT_CMRR_DB": 81.864
   },
   "score": 1.0,
   "details": {
     "dc_gain_db": {
-      "measured": 83.711,
+      "measured": 83.404,
       "target": ">60",
       "met": true,
       "score": 1.0,
       "unit": "dB"
     },
     "gbw_hz": {
-      "measured": 10100000.0,
+      "measured": 13500000.0,
       "target": ">5e6",
       "met": true,
       "score": 1.0,
       "unit": "Hz"
     },
     "phase_margin_deg": {
-      "measured": 110.685,
+      "measured": 120.071,
       "target": ">60",
       "met": true,
       "score": 1.0,
       "unit": "deg"
     },
     "power_uw": {
-      "measured": 247.477,
+      "measured": 196.176,
       "target": "<1000",
       "met": true,
       "score": 1.0,
       "unit": "uW"
     },
     "output_swing_v": {
-      "measured": 1.782,
+      "measured": 1.786,
       "target": ">1.2",
       "met": true,
       "score": 1.0,
       "unit": "V"
     },
     "cmrr_db": {
-      "measured": 73.385,
+      "measured": 81.864,
       "target": ">60",
       "met": true,
       "score": 1.0,
@@ -53,29 +53,29 @@
     }
   },
   "parameters": {
-    "Cc": 2.460158,
-    "Ibias": 3.057128e-05,
-    "L1": 2.516003,
-    "L3": 1.197495,
-    "L5": 0.9731237,
-    "L6": 0.5291837,
-    "L7": 2.721271,
-    "Lbn": 1.225218,
-    "Lbp": 0.731803,
-    "Rc": 9679.758,
-    "W1": 8.758748,
-    "W3": 20.37093,
-    "W5": 6.608636,
-    "W6": 46.0995,
-    "W7": 43.78965,
-    "Wbn": 12.38584,
-    "Wbp": 6.662561
+    "Cc": 6.015667,
+    "Ibias": 2.36352e-05,
+    "L1": 2.553702,
+    "L3": 1.238927,
+    "L5": 1.682791,
+    "L6": 0.573628,
+    "L7": 0.6868809,
+    "Lbn": 2.011033,
+    "Lbp": 3.746806,
+    "Rc": 11854.42,
+    "W1": 18.55411,
+    "W3": 21.77855,
+    "W5": 7.879019,
+    "W6": 54.62777,
+    "W7": 16.95163,
+    "Wbn": 15.90997,
+    "Wbp": 22.27934
   },
   "de_result": {
     "converged": false,
     "iterations": 50,
-    "diversity": 0.1967,
+    "diversity": 0.1241,
     "stop_reason": "max_iterations",
-    "best_metric": -6.87
+    "best_metric": -7.082399
   }
 }

@@ -3,3 +3,4 @@ step	commit	score	topology	specs_met	notes
 2	pending	159.0	two-stage-miller-nmos-input	6/6	validated: all transistors SAT, transient stable (0.8% OS), 300+ trials converged
 3	bcbc48d	1.00	NMOS-input two-stage Miller OTA	6/6	DC gain 83.7dB, GBW 10.1MHz, PM 110.7deg, power 247uW, swing 1.78V, CMRR 73.4dB
 2	5557f11	1.00	two-stage-miller-nmos-input	6/6	All specs met: gain=82dB GBW=23MHz PM=97deg power=83uW swing=1.79V CMRR=82dB
+4	pending	1.00	two-stage-miller-nmos-input	6/6	gain=83.4dB GBW=13.5MHz PM=120deg power=196uW swing=1.79V CMRR=81.9dB — fixed PM in DE cost, seeded population
