@@ -1,5 +1,5 @@
-* SKY130 Two-Stage Miller OTA — NMOS input, cascode PMOS load
-* Cascode load in first stage for higher gain and CMRR
+* SKY130 Two-Stage Miller OTA — NMOS input pair
+* Proven simple topology, optimized parameter ranges for deeper convergence
 
 .lib "sky130_models/sky130_ultra_minimal.lib.spice" tt
 
@@ -17,27 +17,16 @@ Vinm inm 0 DC 0.9 AC -0.5
 Ibias vdd biasn {Ibias}
 XMbn biasn biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 
-* PMOS bias mirror
+* PMOS bias: PMOS diode loaded by NMOS mirror
 XMbp1 biasp biasp vdd vdd sky130_fd_pr__pfet_01v8 W={Wbp}u L={Lbp}u nf=1
 XMbp2 biasp biasn vss vss sky130_fd_pr__nfet_01v8 W={Wbn}u L={Lbn}u nf=1
 
-* Cascode PMOS bias — diode-connected for gate voltage
-XMbc pcas pcas vdd vdd sky130_fd_pr__pfet_01v8 W={Wc}u L={Lc}u nf=1
-Ibcas pcas vss {Ibias}
-
 * === FIRST STAGE ===
-* Tail current source
 XM5 tail biasn vss vss sky130_fd_pr__nfet_01v8 W={W5}u L={L5}u nf=1
-
-* NMOS input pair
 XM1 n1 inm tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
 XM2 n2 inp tail vss sky130_fd_pr__nfet_01v8 W={W1}u L={L1}u nf=1
-
-* Cascode PMOS load (higher output impedance = more gain)
-XM3a p1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
-XM4a p2 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
-XM3b n1 pcas p1 vdd sky130_fd_pr__pfet_01v8 W={Wc}u L={Lc}u nf=1
-XM4b n2 pcas p2 vdd sky130_fd_pr__pfet_01v8 W={Wc}u L={Lc}u nf=1
+XM3 n1 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
+XM4 n2 n1 vdd vdd sky130_fd_pr__pfet_01v8 W={W3}u L={L3}u nf=1
 
 * === SECOND STAGE ===
 XM6 out n2 vdd vdd sky130_fd_pr__pfet_01v8 W={W6}u L={L6}u nf=1
