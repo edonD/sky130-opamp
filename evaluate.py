@@ -670,11 +670,11 @@ def main():
             "details": details,
             "parameters": best_params,
             "de_result": {
-                "converged": de_result.get("converged"),
-                "iterations": de_result.get("iterations"),
-                "diversity": de_result.get("diversity"),
-                "stop_reason": de_result.get("stop_reason"),
-                "best_metric": de_result.get("best_metric"),
+                "converged": bool(de_result.get("converged", False)),
+                "iterations": int(de_result.get("iterations", 0)),
+                "diversity": float(de_result.get("diversity", 0)),
+                "stop_reason": str(de_result.get("stop_reason", "")),
+                "best_metric": float(de_result.get("best_metric", 0)),
             },
         }, f, indent=2)
 
