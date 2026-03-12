@@ -5,7 +5,19 @@ Specs: 6
 
 DE: 17 params, pop=100, patience=50, workers=8
   Seeding DE with previous best parameters
-[DE] iter    1 | best: 2.919506e+02 | no_improve:   0 | div: 0.3054 | dt: 230.031s
-[DE] iter    2 | best: 2.908646e+02 | no_improve:   0 | div: 0.2949 | dt: 310.942s
-[DE] iter    3 | best: 2.908646e+02 | no_improve:   1 | div: 0.2910 | dt: 325.379s
-[DE] iter    4 | best: 2.908646e+02 | no_improve:   2 | div: 0.2811 | dt: 327.591s
+[DE] iter    1 | best: 1.013478e+01 | no_improve:   0 | div: 0.3040 | dt: 274.910s
+[DE] iter    2 | best: 4.627405e+00 | no_improve:   0 | div: 0.2897 | dt: 267.460s
+[DE] iter    3 | best: 4.627405e+00 | no_improve:   1 | div: 0.2775 | dt: 283.341s
+[DE] iter    4 | best: -1.443416e+00 | no_improve:   0 | div: 0.2649 | dt: 286.627s
+[DE] iter    5 | best: -4.846625e+00 | no_improve:   0 | div: 0.2552 | dt: 272.126s
+[DE] iter    6 | best: -5.010573e+00 | no_improve:   0 | div: 0.2460 | dt: 286.059s
+[DE] iter    7 | best: -5.010573e+00 | no_improve:   1 | div: 0.2399 | dt: 287.697s
+[DE] iter    8 | best: -5.010573e+00 | no_improve:   2 | div: 0.2298 | dt: 314.443s
+[DE] iter    9 | best: -5.010573e+00 | no_improve:   3 | div: 0.2279 | dt: 296.920s
+[DE] iter   10 | best: -5.010573e+00 | no_improve:   4 | div: 0.2276 | dt: 311.416s
+[DE] iter   11 | best: -5.010573e+00 | no_improve:   5 | div: 0.2243 | dt: 296.682s
+[DE] iter   12 | best: -5.010573e+00 | no_improve:   6 | div: 0.2221 | dt: 307.284s
+[DE] iter   13 | best: -5.010573e+00 | no_improve:   7 | div: 0.2173 | dt: 310.374s
+[DE] iter   14 | best: -5.890066e+00 | no_improve:   0 | div: 0.2149 | dt: 289.462s
+[DE] iter   15 | best: -5.890066e+00 | no_improve:   1 | div: 0.2118 | dt: 147.430s
+[DE] iter   16 | best: -5.890066e+00 | no_improve:   2 | div: 0.2082 | dt: 158.510s

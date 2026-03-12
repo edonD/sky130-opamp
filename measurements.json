@@ -1,87 +1,87 @@
 {
   "measurements": {
     "Doing analysis at TEMP": 27.0,
-    "RESULT_POWER_UW": 9.47243e-05,
-    "dc_gain_db": -12.62,
-    "RESULT_DC_GAIN_DB": -12.62,
-    "gbw_hz": 2.60535,
-    "RESULT_GBW_HZ": 2.60535,
-    "cm_gain_db": -56.8425,
-    "RESULT_CMRR_DB": 44.2225,
-    "vout_max": 0.704109,
-    "vout_min": 4.1788e-08,
-    "RESULT_OUTPUT_SWING_V": 0.704109,
-    "RESULT_PHASE_MARGIN_DEG": 81.10384564786341
+    "RESULT_POWER_UW": 150.135,
+    "dc_gain_db": 76.6464,
+    "RESULT_DC_GAIN_DB": 76.6464,
+    "gbw_hz": 14658600.0,
+    "RESULT_GBW_HZ": 14658600.0,
+    "cm_gain_db": -6.74421,
+    "RESULT_CMRR_DB": 83.3906,
+    "vout_max": 1.78297,
+    "vout_min": 6.34479e-09,
+    "RESULT_OUTPUT_SWING_V": 1.78297,
+    "RESULT_PHASE_MARGIN_DEG": 113.08671292986465
   },
-  "score": 0.5117178958806666,
+  "score": 1.0,
   "details": {
     "dc_gain_db": {
-      "measured": -12.62,
+      "measured": 76.6464,
       "target": ">60",
-      "met": false,
-      "score": 0,
+      "met": true,
+      "score": 1.0,
       "unit": "dB"
     },
     "gbw_hz": {
-      "measured": 2.60535,
+      "measured": 14658600.0,
       "target": ">5e6",
-      "met": false,
-      "score": 5.2107e-07,
+      "met": true,
+      "score": 1.0,
       "unit": "Hz"
     },
     "phase_margin_deg": {
-      "measured": 81.10384564786341,
+      "measured": 113.08671292986465,
       "target": ">60",
       "met": true,
       "score": 1.0,
       "unit": "deg"
     },
     "power_uw": {
-      "measured": 9.47243e-05,
+      "measured": 150.135,
       "target": "<1000",
       "met": true,
       "score": 1.0,
       "unit": "uW"
     },
     "output_swing_v": {
-      "measured": 0.704109,
+      "measured": 1.78297,
       "target": ">1.2",
-      "met": false,
-      "score": 0.5867575,
+      "met": true,
+      "score": 1.0,
       "unit": "V"
     },
     "cmrr_db": {
-      "measured": 44.2225,
+      "measured": 83.3906,
       "target": ">60",
-      "met": false,
-      "score": 0.7370416666666666,
+      "met": true,
+      "score": 1.0,
       "unit": "dB"
     }
   },
   "parameters": {
-    "Cc": 1.0266109425370118,
-    "Ibias": 2.467995975077616e-05,
-    "L1": 0.8340163088717366,
-    "L3": 4.719404956342448,
-    "L5": 3.077783310160764,
-    "L6": 0.9254169174586135,
-    "L7": 3.9706640000867695,
-    "Lbn": 2.030348353852573,
-    "Lbp": 2.116053539635377,
-    "Rc": 4223.346034219657,
-    "W1": 84.93344400217681,
-    "W3": 3.5892994177835273,
-    "W5": 20.00592355750959,
-    "W6": 13.239707543162567,
-    "W7": 31.405341874526265,
-    "Wbn": 71.55358150338039,
-    "Wbp": 24.03079677841859
+    "Cc": 7.291670884790603,
+    "Ibias": 6.383709666294593e-06,
+    "L1": 2.0176896214697226,
+    "L3": 0.6250627662056202,
+    "L5": 4.276471471306045,
+    "L6": 0.39792672312256533,
+    "L7": 3.0348262110079327,
+    "Lbn": 2.3095681712003056,
+    "Lbp": 4.327522419935989,
+    "Rc": 6563.954924639202,
+    "W1": 52.48570696073082,
+    "W3": 18.723670388131872,
+    "W5": 34.6889058836594,
+    "W6": 27.01320139433211,
+    "W7": 38.83534259917872,
+    "Wbn": 5.359274655769836,
+    "Wbp": 33.288366085463494
   },
   "de_result": {
     "converged": false,
     "iterations": 50,
-    "diversity": 0.20040036766770217,
+    "diversity": 0.11465328322611706,
     "stop_reason": "max_iterations",
-    "best_metric": 260.552168723237
+    "best_metric": -6.717790430995489
   }
 }

@@ -19,3 +19,123 @@ DE: 17 params, pop=34, patience=10, workers=8
 [DE] iter   12 | best: -2.191753e+00 | no_improve:   3 | div: 0.1935 | dt: 115.373s
 [DE] iter   13 | best: -2.673628e+00 | no_improve:   0 | div: 0.1946 | dt: 63.714s
 [DE] iter   14 | best: -2.673628e+00 | no_improve:   1 | div: 0.1893 | dt: 58.900s
+[DE] iter   15 | best: -2.673628e+00 | no_improve:   2 | div: 0.1862 | dt: 94.345s
+[DE] iter   16 | best: -3.394846e+00 | no_improve:   0 | div: 0.1822 | dt: 107.289s
+[DE] iter   17 | best: -5.589157e+00 | no_improve:   0 | div: 0.1790 | dt: 102.623s
+[DE] iter   18 | best: -5.589157e+00 | no_improve:   1 | div: 0.1778 | dt: 107.970s
+[DE] iter   19 | best: -5.589157e+00 | no_improve:   2 | div: 0.1792 | dt: 105.154s
+[DE] iter   20 | best: -5.589157e+00 | no_improve:   3 | div: 0.1756 | dt: 105.970s
+[DE] iter   21 | best: -5.589157e+00 | no_improve:   4 | div: 0.1772 | dt: 116.361s
+[DE] iter   22 | best: -5.589157e+00 | no_improve:   5 | div: 0.1807 | dt: 105.361s
+[DE] iter   23 | best: -6.057022e+00 | no_improve:   0 | div: 0.1751 | dt: 105.853s
+[DE] iter   24 | best: -6.057022e+00 | no_improve:   1 | div: 0.1682 | dt: 107.896s
+[DE] iter   25 | best: -6.057022e+00 | no_improve:   2 | div: 0.1719 | dt: 104.825s
+[DE] iter   26 | best: -6.057022e+00 | no_improve:   3 | div: 0.1691 | dt: 119.338s
+[DE] iter   27 | best: -6.057022e+00 | no_improve:   4 | div: 0.1617 | dt: 107.675s
+[DE] iter   28 | best: -6.057022e+00 | no_improve:   5 | div: 0.1614 | dt: 112.161s
+[DE] iter   29 | best: -6.057022e+00 | no_improve:   6 | div: 0.1622 | dt: 120.724s
+[DE] iter   30 | best: -6.057022e+00 | no_improve:   7 | div: 0.1618 | dt: 110.484s
+[DE] iter   31 | best: -6.057022e+00 | no_improve:   8 | div: 0.1643 | dt: 118.295s
+[DE] iter   32 | best: -6.057022e+00 | no_improve:   9 | div: 0.1633 | dt: 118.540s
+[DE] iter   33 | best: -6.057022e+00 | no_improve:  10 | div: 0.1633 | dt: 118.290s
+[DE] iter   34 | best: -6.057022e+00 | no_improve:  11 | div: 0.1633 | dt: 121.254s
+[DE] iter   35 | best: -6.717790e+00 | no_improve:   0 | div: 0.1575 | dt: 114.291s
+[DE] iter   36 | best: -6.717790e+00 | no_improve:   1 | div: 0.1522 | dt: 120.889s
+[DE] iter   37 | best: -6.717790e+00 | no_improve:   2 | div: 0.1497 | dt: 125.901s
+[DE] iter   38 | best: -6.717790e+00 | no_improve:   3 | div: 0.1455 | dt: 108.545s
+[DE] iter   39 | best: -6.717790e+00 | no_improve:   4 | div: 0.1446 | dt: 126.394s
+[DE] iter   40 | best: -6.717790e+00 | no_improve:   5 | div: 0.1405 | dt: 116.627s
+[DE] iter   41 | best: -6.717790e+00 | no_improve:   6 | div: 0.1394 | dt: 121.624s
+[DE] iter   42 | best: -6.717790e+00 | no_improve:   7 | div: 0.1375 | dt: 120.226s
+[DE] iter   43 | best: -6.717790e+00 | no_improve:   8 | div: 0.1266 | dt: 112.869s
+[DE] iter   44 | best: -6.717790e+00 | no_improve:   9 | div: 0.1248 | dt: 116.788s
+[DE] iter   45 | best: -6.717790e+00 | no_improve:  10 | div: 0.1226 | dt: 117.916s
+[DE] iter   46 | best: -6.717790e+00 | no_improve:  11 | div: 0.1244 | dt: 117.414s
+[DE] iter   47 | best: -6.717790e+00 | no_improve:  12 | div: 0.1219 | dt: 124.396s
+[DE] iter   48 | best: -6.717790e+00 | no_improve:  13 | div: 0.1205 | dt: 112.722s
+[DE] iter   49 | best: -6.717790e+00 | no_improve:  14 | div: 0.1140 | dt: 117.149s
+[DE] iter   50 | best: -6.717790e+00 | no_improve:  15 | div: 0.1147 | dt: 113.776s
+
+============================================================
+  Stop reason:  max_iterations
+  Converged:    False
+  Iterations:   50
+  Best metric:  -6.717790e+00
+  Diversity:    0.1147
+  Best parameters:
+    Cc: 7.291671e+00
+    Ibias: 6.383710e-06
+    L1: 2.017690e+00
+    L3: 6.250628e-01
+    L5: 4.276471e+00
+    L6: 3.979267e-01
+    L7: 3.034826e+00
+    Lbn: 2.309568e+00
+    Lbp: 4.327522e+00
+    Rc: 6.563955e+03
+    W1: 5.248571e+01
+    W3: 1.872367e+01
+    W5: 3.468891e+01
+    W6: 2.701320e+01
+    W7: 3.883534e+01
+    Wbn: 5.359275e+00
+    Wbp: 3.328837e+01
+============================================================
+
+  DC phase = -0.2 deg, non-inverting amp
+  WARNING: no 0dB crossing found in AC data
+
+======================================================================
+  EVALUATION REPORT — SKY130 Operational Amplifier
+======================================================================
+
+  Score: 1.00 / 1.00  |  Time: 5546.2s
+  DE converged: False  |  Iterations: 50  |  Diversity: 0.1147
+  Stop reason: max_iterations
+
+  Specs met: 6/6
+
+  Spec                            Target     Measured     Unit   Status  Score
+  -------------------------------------------------------------------------
+  dc_gain_db                         >60       76.646       dB     PASS  1.00
+  gbw_hz                            >5e6     1.47e+07       Hz     PASS  1.00
+  phase_margin_deg                   >60      113.087      deg     PASS  1.00
+  power_uw                         <1000      150.135       uW     PASS  1.00
+  output_swing_v                    >1.2        1.783        V     PASS  1.00
+  cmrr_db                            >60       83.391       dB     PASS  1.00
+
+  Best Parameters:
+    Cc                   = 7.2917e+00
+    Ibias                = 6.3837e-06
+    L1                   = 2.0177e+00
+    L3                   = 6.2506e-01
+    L5                   = 4.2765e+00
+    L6                   = 3.9793e-01
+    L7                   = 3.0348e+00
+    Lbn                  = 2.3096e+00
+    Lbp                  = 4.3275e+00
+    Rc                   = 6.5640e+03
+    W1                   = 5.2486e+01
+    W3                   = 1.8724e+01
+    W5                   = 3.4689e+01
+    W6                   = 2.7013e+01
+    W7                   = 3.8835e+01
+    Wbn                  = 5.3593e+00
+    Wbp                  = 3.3288e+01
+
+======================================================================
+
+Traceback (most recent call last):
+  File "/home/ubuntu/sky130-opamp/evaluate.py", line 773, in <module>
+    score = main()
+  File "/home/ubuntu/sky130-opamp/evaluate.py", line 763, in main
+    generate_progress_plot(RESULTS_FILE, PLOTS_DIR)
+  File "/home/ubuntu/sky130-opamp/evaluate.py", line 599, in generate_progress_plot
+    ax.plot(steps, scores, 'o', color='#0f3460', markersize=4, alpha=0.5, label='Run score')
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 1777, in plot
+    lines = [*self._get_lines(self, *args, data=data, **kwargs)]
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/axes/_base.py", line 297, in __call__
+    yield from self._plot_args(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/axes/_base.py", line 494, in _plot_args
+    raise ValueError(f"x and y must have same first dimension, but "
+ValueError: x and y must have same first dimension, but have shapes (11,) and (10,)

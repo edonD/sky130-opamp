@@ -9,4 +9,5 @@ step	commit	score	topology	specs_met	notes
 7	9a286ad	1.00	two-stage-miller-nmos-input	6/6	gain=72.3dB GBW=19.8MHz PM=122.5deg power=207uW swing=1.77V CMRR=90.2dB — tightened ranges, best metric -6.82 (new record)
 8	f100cc7	1.00	two-stage-miller-indep-bias	6/6	gain=75.1dB GBW=15.1MHz PM=116.7deg power=318uW swing=1.79V CMRR=75.5dB — independent stage biasing, DE converged at iter 48
 9	dd51e44	1.00	two-stage-miller-nmos-input	6/6	gain=68.5dB GBW=15.5MHz PM=120.2deg power=138uW swing=1.79V CMRR=83.2dB — narrow ranges around iter 7 optimum, metric -6.70
-10	bd2c129	FAIL	two-stage-miller-pmos-input	0/6	PMOS input pair failed — DE metric stuck at 260-1074 after 166 iters, topology cannot converge in SKY130
+10	bd2c129	0.51	two-stage-miller-pmos-input	2/6	PMOS input pair failed — DE metric stuck at 260-1074 after 166 iters, topology cannot converge in SKY130
+11	pending	1.00	two-stage-miller-nmos-input	6/6	gain=76.6dB GBW=14.7MHz PM=113.1deg power=150uW swing=1.78V CMRR=83.4dB — wider ranges + iter7 seed, metric -6.72
